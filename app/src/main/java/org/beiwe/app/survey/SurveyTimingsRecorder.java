@@ -77,7 +77,7 @@ public class SurveyTimingsRecorder {
 	public static String sanitizeString(String input) {
 		input = input.replaceAll("[\t\n\r]", "  ");
 		// Replace all commas in the text with semicolons, because commas are the delimiters
-		input = input.replaceAll(",", ";");
+		input = input.replaceAll(",", ".");
 		return input;
 	}
 

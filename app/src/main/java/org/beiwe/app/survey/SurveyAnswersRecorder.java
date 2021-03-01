@@ -178,7 +178,7 @@ public class SurveyAnswersRecorder {
 
 				// If this CheckBox is selected, add it to the list of selected answers
 				if (checkBox.isChecked()) {
-					answersList += checkBox.getText().toString() + ", ";
+					answersList += checkBox.getText().toString() + "; ";
 				}
 			}
 		}
