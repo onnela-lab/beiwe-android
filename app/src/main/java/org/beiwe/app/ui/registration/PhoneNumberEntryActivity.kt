@@ -12,7 +12,8 @@ import org.beiwe.app.survey.TextFieldKeyboard
 import org.beiwe.app.ui.utils.AlertsManager
 
 class PhoneNumberEntryActivity : RunningBackgroundServiceActivity() {
-    private val phoneNumberLength = 10
+    private val minPhoneNumberLength = 8
+    private val maxPhoneNumberLength = 15
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +42,12 @@ class PhoneNumberEntryActivity : RunningBackgroundServiceActivity() {
                 AlertsManager.showAlert(getString(R.string.enter_clinician_number), this)
                 return
             }
-            if (primary.length != phoneNumberLength) {
-                AlertsManager.showAlert(String.format(getString(R.string.phone_number_length_error), phoneNumberLength), this)
+            if (primary.length < minPhoneNumberLength) {
+                AlertsManager.showAlert(String.format(getString(R.string.phone_number_length_min_error), minPhoneNumberLength), this)
+                return
+            }
+            if (primary.length > maxPhoneNumberLength) {
+                AlertsManager.showAlert(String.format(getString(R.string.phone_number_length_max_error), maxPhoneNumberLength), this)
                 return
             }
         }
@@ -51,8 +56,12 @@ class PhoneNumberEntryActivity : RunningBackgroundServiceActivity() {
                 AlertsManager.showAlert(getString(R.string.enter_research_assitant_number), this)
                 return
             }
-            if (reset.length != phoneNumberLength) {
-                AlertsManager.showAlert(String.format(getString(R.string.phone_number_length_error), phoneNumberLength), this)
+            if (reset.length < minPhoneNumberLength) {
+                AlertsManager.showAlert(String.format(getString(R.string.phone_number_length_min_error), minPhoneNumberLength), this)
+                return
+            }
+            if (reset.length > maxPhoneNumberLength) {
+                AlertsManager.showAlert(String.format(getString(R.string.phone_number_length_max_error), maxPhoneNumberLength), this)
                 return
             }
         }

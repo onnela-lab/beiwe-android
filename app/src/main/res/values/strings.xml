@@ -234,4 +234,6 @@
     <string name="randomizeWithMemory" translatable="false">randomize_with_memory</string>
     <string name="numberQuestions" translatable="false">number_of_random_questions</string>
     <string name="triggeredSurvey" translatable="false">trigger_on_first_download</string>
+    <string name="phone_number_length_min_error">Error: Phone Numbers must be at least %d digits long.</string>
+    <string name="phone_number_length_max_error">Error: Phone numbers must be at most %d characters long</string>
 </resources>
