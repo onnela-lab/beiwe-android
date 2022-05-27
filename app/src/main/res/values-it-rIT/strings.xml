@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Reference strings in Java code using a line like this:
+    appContext.getResources().getString(R.string.name_of_string) -->
+
+    <!-- General Strings -->
+    <string name="action_settings">Impostazioni</string>
+	
+    <!-- Permissions Strings -->
+    <string name="permissions_alert_title">Requisiti per le autorizzazioni:</string>
+    <string name="permission_normal_request_template">Per questo studio Beiwe ha bisogno dell\'autorizzazione per %s. Per favore premi Consenti sulla seguente richiesta di autorizzazione</string>
+    <string name="permission_bumping_request_template">Per essere completamente arruolato in questo studio, Beiwe ha bisogno dell\'autorizzazione a %s. Sembra che tu abbia negato o rimosso questa autorizzazione. Beiwe ora ti indirizzerà alla sua pagina nelle impostazioni in modo che tu possa abilitarla manualmente.</string>
+    <string name="permission_registration_read_sms_alert">Per iscriversi a uno studio, Beiwe richiede l\'accesso ad alcuni servizi telefonici di questo dispositivo. Premi \\\"Consenti\\\" quando vedi un menu che richiede le autorizzazioni per accedere agli SMS. A seconda dei dettagli dello studio, puoi disabilitare questa autorizzazione nelle preferenze dell\'app Beiwe dopo che la registrazione è stata completata.</string>
+    <string name="permission_registration_actually_need_sms_alert">Beiwe richiede autorizzazioni SMS per registrarsi a uno studio, ma sembra che tu le abbia negato l\'autorizzazione. Ti indirizzeremo alle impostazioni dell\'app Beiwe in modo che tu possa abilitare manualmente l\'accesso agli SMS.</string>
+    <string name="power_management_exception_alert">La richiesta di autorizzazione che stai per visualizzare è necessaria per consentire a Beiwe di essere eseguita in background.</string>
+    <string name="cant_make_phone_call_alert_title">Beiwe non può avviare telefonate</string>
+    <string name="cant_make_a_phone_call_permissions_alert">Affinché Beiwe possa avviare una telefonata, devi andare su Impostazioni -> Autorizzazioni e concedere all\'app Beiwe l\'autorizzazione \'Telefono\'.\n\nOppure puoi aprire l\'app Telefono e fai tu stesso la telefonata.</string>
+    <string name="go_to_settings_button">Vai a Impostazioni</string>
+    <string name="permission_access_fine_location">utilizza servizi di localizzazione</string>
+    <string name="permission_access_network_state">visualizza lo stato della tua rete</string>
+    <string name="permission_access_wifi_state">visualizza il tuo stato Wi-Fi</string>
+    <string name="permission_read_sms">visualizza i tuoi messaggi SMS</string>
+    <string name="permission_bluetooth">utilizza il Bluetooth</string>
+    <string name="permission_bluetooth_admin">utilizza il Bluetooth</string>
+    <string name="permission_call_phone">accedi al tuo servizio telefonico</string>
+    <string name="permission_internet">accedi ad Internet</string>
+    <string name="permission_read_call_log">accedi al tuo servizio telefonico</string>
+    <string name="permission_read_contacts">accedi ai tuoi contatti</string>
+    <string name="permission_read_phone_state">accedi al tuo servizio telefonico</string>
+    <string name="permission_receive_boot_completed">avvio all\'avvio</string>
+    <string name="permission_record_audio">accedi al tuo microfono</string>
+    <string name="permission_access_coarse_location">utilizza i servizi di localizzazione</string>
+    <string name="permission_receive_mms">ricevi messaggi MMS</string>
+    <string name="permission_receive_sms">ricevi messaggi SMS</string>
+    <string name="permission_access_background_location">utilizza l’opzione: \"Consenti sempre\"</string>
+
+    <!-- API URLs -->
+
+    <!-- Recording Options Strings -->
+    <string name="title_activity_audio_recorder">Registra</string>
+    <string name="button_play">Ascolta audio</string>
+    <string name="button_record">Registra</string>
+
+    <!-- Debug Menu Strings -->
+
+    <!-- Error Messages -->
+    <string name="default_alert_title">Notare</string>
+    <string name="alert_ok_button_text">OK</string>
+    <string name="alert_cancel_button_text">Annulla</string>
+    <string name="question_error_text">Se stai leggendo questo, qualcosa si è rotto. Si prega di contattare gli amministratori dello studio e di dire loro che c\'è un bug nel sondaggio!</string>
+    <string name="invalid_device">Questo dispositivo non soddisfa le specifiche minime per questa app. Per evitare problemi derivanti da ciò, disinstallare l\'app.</string>
+    <string name="invalid_encryption_key">Ricevuta una chiave di crittografia non valida, contattare l\'amministratore di Beiwe</string>
+    <string name="http_message_200">OK</string>
+    <string name="http_message_1">Qualcuno ha configurato male il server! Si prega di contattare il personale di ricerca.</string>
+    <string name="http_message_400">Non è stato possibile registrare il dispositivo con questo account. Contatta il personale dello studio.</string>
+    <string name="http_message_403_during_registration">L\'URL, l\'ID paziente o la password inseriti non sono corretti.</string>
+    <string name="http_message_403_wrong_password">La password attuale è stata inserita in modo errato.</string>
+    <string name="http_message_403_wrong_password_forgot_password_page">La password temporanea è stata inserita in modo errato</string>
+    <string name="http_message_405">L\'ID paziente che stai utilizzando è già stato registrato. Si prega di confermare l\'ID paziente con il personale dello studio per completare la registrazione.</string>
+    <string name="http_message_internet_disconnected">Sembra che tu non sia connesso a Internet: connettiti a Internet e riprova.</string>
+    <string name="http_message_server_not_found">Si prega di confermare che l\'URL sia corretto. Beiwe non è stata in grado di connettersi al server.</string>
+    <string name="http_message_unknown_response_code">Si è verificato un errore sconosciuto in Beiwe.</string>
+
+    <!-- Survey Activity Strings -->
+    <string name="survey_next_button_text">Prossimo"</string>
+    <string name="survey_submit_button">Invia questionario</string>
+    <string name="default_survey_submit_success_message">Grazie per aver completato il sondaggio. Un medico non vedrà immediatamente le tue risposte, quindi se hai bisogno di aiuto o stai pensando di farti del male, contatta il tuo medico. Puoi anche premere il pulsante \"Chiama il mio medico\".</string>
+    <string name="survey_submit_error_message">Questionario non salvata</string>
+    <string name="survey_loading_text" tools:ignore="TypographyEllipsis">Download delle domande aggiornate del questionario in corso…</string>
+
+    <!-- Login Activity Strings -->
+    <string name="login_page_for_app">Accedi al tuo studio</string>
+    <string name="login_activity_please_enter_password">Password:</string>
+    <string name="incorrect_user_pass_combo">La password è stata inserita in modo errato</string>
+    <string name="title_activity_register">Registrati</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_login_string">Login</string>
+    <string name="login_activity_welcoming_message">Accedi al tuo studio</string>
+    <string name="user_id_system_mismatch">l\'ID paziente non sono corretti.</string>
+    <string name="password_system_mismatch">l\'ID paziente o la password inseriti non sono corretti.</string>
+
+    <!-- Reset Password Activity Strings -->
+    <string name="title_activity_reset_password">Cambia password</string>
+<string name="reset_password_title">Cambia password</string>
+<string name="reset_password_current_password_caption">Password attuale:</string>
+<string name="reset_password_new_password_caption">Nuova password:</string>
+<string name="reset_password_confirm_new_password_caption">Conferma nuova password:</string>
+<string name="reset_password_submit">Cambia password</string>
+<string name="reset_password_error_alert_title">Aggiornamento password fallito</string>
+<string name="invalid_old_password">La password attuale è stata inserita in modo errato</string>
+<string name="pass_reset_complete">La tua password è stata modificata con successo</string>
+<string name="password_mismatch">La nuova password non corrisponde Conferma nuova password.</string>
+<string name="password_too_short">La tua nuova password deve contenere almeno %d caratteri</string>
+
+    <!-- Forgot Password Activity Strings -->
+<string name="title_activity_forgot_password">password dimenticata</string>
+<string name="forgot_password_title">Per favore contatta il personale dello studio e presenta il tuo ID paziente in modo che possano fornirti una password temporanea</string>
+<string name="forgot_password_instructions_text">Il tuo ID è \"%s\"; ricordati di identificarti con questo ID e non con il tuo nome.</string>
+<string name="forgot_password_call_button_text">Chiama il assistente ricerca</string>
+<string name="forgot_password_temporary_password_caption">Password temporanea:</string>
+
+    <!-- Registration Activity Strings -->
+<string name="registration_welcome_message">Benvenuto nello Studio</string>
+<string name="registration_server_url_label">URL dello studio:</string>
+<string name="registration_server_url_hint">Ad esempio, www.eu.beiwe.org</string>
+<string name="registration_user_id_label">ID paziente:</string>
+<string name="registration_user_id_hint">ID paziente</string>
+<string name="registration_temp_password_label">Password temporanea:</string>
+<string name="registration_temp_password_hint">Password temporanea</string>
+<string name="registration_new_password_label">Nuova password:</string>
+<string name="registration_new_password_hint">Lunghezza minima 6 caratteri</string>
+<string name="registration_confirm_new_password_label">Conferma password:</string>
+<string name="registration_confirm_new_password_hint">Lunghezza minima 6 caratteri</string>
+<string name="registration_replacement_password_hint">Lunghezza minima %d caratteri</string>
+<string name="registration_submit">Registrati</string>
+<string name="title_activity_loading">Caricamento di Beiwe</string>
+<string name="empty_temp_password">Per favore inserisci la password temporanea che ti è stata data al momento della registrazione.</string>
+<string name="url_too_short">Per favore inserisci l\'URL dello studio</string>
+<string name="invalid_user_id">Per favore inserisci il tuo ID paziente</string>
+<string name="invalid_password">La password inseriti non sono corretti.</string>
+<string name="couldnt_register">Registrazione fallita</string>
+
+    <!-- Phone Numbers -->
+<string name="title_activity_phone_number_entry">Numeri di telefono</string>
+<string name="number_entry_top_message">Numeri di telefono</string>
+<string name="number_entry_button">Inserisci i numeri di telefono</string>
+<string name="phone_number_entry_your_clinician_label">Telefono ricercatore primario</string>
+<string name="phone_number_entry_your_clinician_hint"> </string>
+<string name="phone_number_entry_research_assistant_label">Telefono assistente ricerca:</string>
+<string name="phone_number_entry_research_assistant_hint"> </string>
+
+    <!-- Loading Activity Strings -->
+<string name="loading_activity_loading_message" tools:ignore="TypographyEllipsis">Caricamento in corso...</string>
+<string name="survey_notification_title_template">Questionario: %s</string>
+<string name="action_share">Condividere</string>
+<string name="action_reply">Rispondere</string>
+
+    <!-- Main menu strings -->
+<string name="title_activity_main_menu">Schermata principale di Beiwe</string>
+<string name="main_menu_top_message">Benvenuto in Beiwe!</string>
+<string name="main_menu_view_graph">"Visualizza le risposte ai questionari in forma di grafico "</string>
+<string name="default_call_clinician_text">Chiama il medico</string>
+<string name="title_activity_graph">Risposte ai questionari precedent</string>
+<string name="permasurvey">permasurvey</string>
+<string name="perm_survey">Questionario</string>
+<string name="permaaudiosurvey">Questionario audio</string>
+
+    <!-- Recording Activity -->
+<string name="record_activity_default_message">We would like to know how your day is going.  When you are ready, please press \"Record\" and speak for about 2 minutes.  Press \"Stop\" when you are finished. The recording will stop automatically after 4 minutes. Remember, researchers will not review and analyze your data until the end of the study, so if you are ill or in danger and need to speak with your clinician, press the \"Call My Clinician\" button.</string>
+<string name="record_activity_button">Registra</string>
+<string name="record_activity_playback">Ascolta audio</string>
+<string name="play_button_text">Ascolta audio</string>
+<string name="play_button_stop_text">Stop</string>
+<string name="record_button_text">Registra</string>
+<string name="record_button_stop_text">Stop</string>
+<string name="done_button_text">Salva</string>
+<string name="timeout_msg_1st_half">"La registrazione vocale non può durare più di "</string>
+<string name="timeout_msg_2nd_half">minuti, perciò la registrazione è stata automaticamente interrotta e salvata</string>
+
+    <!-- Notifications -->
+<string name="survey_notification_app_name">Beiwe</string>
+<string name="new_android_survey_notification_ticker">È disponibile un nuovo questionario da compilare</string>
+<string name="new_android_survey_notification_details">Si prega di compilare questo sondaggio.</string>
+<string name="new_audio_survey_notification_ticker">È disponibile un nuovo questionario audio a cui rispondere</string>
+<string name="new_audio_survey_notification_details">Registra</string>
+
+    <!-- Notification Action Pointers -->
+
+    <!-- Timer Action Strings -->
+
+    <!-- Menu Items -->
+<string name="menu_sign_out">Logout</string>
+<string name="menu_change_password">Cambia password</string>
+<string name="menu_about">Informazioni su questa app</string>
+<string name="call_research_assistant">Chiama il assistente ricerca</string>
+<string name="view_survey_answers">"Visualizza le risposte ai questionari "</string>
+
+    <!-- About Page -->
+<string name="title_activity_about">Informazioni su Beiwe</string>
+<string name="default_about_page_text">Beiwe è un\'applicazione che funziona sul tuo cellulare e aiuta i ricercatori a raccogliere informazioni sulla tua salute e sui tuoi comportamenti. Ti chiede di compilare brevi sondaggi e di registrare la tua voce una volta al giorno. Beiwe raccoglie continuamente informazioni sulla tua posizione (usando il GPS del tuo telefono) e su quanto ti muovi (usando l\'accelerometro del tuo telefono). Monitora anche quanto usi il telefono per chiamare e inviare SMS e tiene traccia delle diverse persone con cui comunichi. È importante sottolineare che Beiwe non registra i nomi o i numeri di telefono delle persone con cui comunichi. Sebbene possa dire se chiami la stessa persona più di una volta, non sa chi sia quella persona. Beiwe non registra il contenuto dei tuoi messaggi di testo o delle tue telefonate. Tiene anche traccia delle diverse reti Wi-Fi nella tua zona, ma i nomi di tali reti vengono sostituiti con codici casuali. Infine, Beiwe può dire se sei vicino a un altro telefono che esegue anche questa applicazione.\n\nSebbene Beiwe raccolga una grande quantità di dati, tutti questi dati vengono elaborati per proteggere la tua privacy. Ciò significa che l\'applicazione non conosce il tuo nome, il tuo numero di telefono o qualsiasi altra cosa che possa identificarti. Beiwe ti conosce solo tramite un numero di identificazione. Poiché Beiwe non sa chi sei, non può comunicare con il tuo medico se sei malato o in pericolo. I ricercatori non esamineranno i dati raccolti da Beiwe fino alla fine dello studio. Per facilitare la connessione con il medico, nella parte superiore di ogni pagina viene visualizzato il pulsante \"Chiama il mio medico\". Affinché il pulsante funzioni, devi inserire il numero di telefono del tuo medico in Beiwe. Puoi cambiarlo tutte le volte che vuoi.\n\nBeiwe è stato concepito e progettato dal Dr. Jukka-Pekka \"JP\" Onnela presso la Harvard School of Public Health. Il software è stato creato da Zagaran, Inc., a Cambridge, Massachusetts.</string>
+
+    <!-- Phone Numbers -->
+<string name="phone_number_length_error">I numeri di telefono devono contenere esattamente %d cifre.</string>
+<string name="enter_clinician_number">È necessario immettere un valore per il numero di telefono del medico </string>
+<string name="enter_research_assitant_number">È necessario immettere un valore per il numero di telefono dell\'assistente di ricerca </string>
+    <!-- Consent Form -->
+<string name="title_activity_consent_form">Consenso per utilizzare Beiwe</string>
+<string name="consentButton">Consenti</string>
+<string name="doNotConsentButton">Annulla</string>
+<string name="doNotConsentAlert">Hai indicato di non acconsentire ai termini di questa applicazione. Se premi \"Ho capito\" l\'app uscirà e non verrai iscritto allo studio. Se premi \"Annulla\" l\'app non uscirà e potrai premere il pulsante \"Acconsento\", che ti iscriverà allo studio.</string>
+<string name="i_understand_button_text">Capisco</string>
+<string name="default_consent_form_text">
+         Il modulo di consenso\n
+         Va\n
+         Qui.
+    </string>
+    <string name="title_activity_survey">Questionario</string>
+    <string name="phone_number_length_min_error">I numeri di telefono devono contenere minima %d cifre.</string>
+    <string name="phone_number_length_max_error">I numeri di telefono devono contenere massimo %d cifre.</string>
+
+    <!-- Survey Settings Keys -->
+</resources>
