@@ -9,30 +9,30 @@
     <!-- Permissions Strings -->
     <string name="permissions_alert_title">Requisiti per le autorizzazioni:</string>
     <string name="permission_normal_request_template">Per questo studio Beiwe ha bisogno dell\'autorizzazione per %s. Per favore premi Consenti sulla seguente richiesta di autorizzazione</string>
-    <string name="permission_bumping_request_template">Per essere completamente arruolato in questo studio, Beiwe ha bisogno dell\'autorizzazione a %s. Sembra che tu abbia negato o rimosso questa autorizzazione. Beiwe ora ti indirizzerà alla sua pagina nelle impostazioni in modo che tu possa abilitarla manualmente.</string>
+    <string name="permission_bumping_request_template">Per essere completamente arruolato in questo studio, Beiwe ha bisogno dell\'autorizzazione a%s. Sembra che tu abbia negato o rimosso questa autorizzazione. Beiwe ora ti indirizzerà alla sua pagina nelle impostazioni in modo che tu possa abilitarla manualmente.</string>
     <string name="permission_registration_read_sms_alert">Per iscriversi a uno studio, Beiwe richiede l\'accesso ad alcuni servizi telefonici di questo dispositivo. Premi \\\"Consenti\\\" quando vedi un menu che richiede le autorizzazioni per accedere agli SMS. A seconda dei dettagli dello studio, puoi disabilitare questa autorizzazione nelle preferenze dell\'app Beiwe dopo che la registrazione è stata completata.</string>
     <string name="permission_registration_actually_need_sms_alert">Beiwe richiede autorizzazioni SMS per registrarsi a uno studio, ma sembra che tu le abbia negato l\'autorizzazione. Ti indirizzeremo alle impostazioni dell\'app Beiwe in modo che tu possa abilitare manualmente l\'accesso agli SMS.</string>
     <string name="power_management_exception_alert">La richiesta di autorizzazione che stai per visualizzare è necessaria per consentire a Beiwe di essere eseguita in background.</string>
     <string name="cant_make_phone_call_alert_title">Beiwe non può avviare telefonate</string>
     <string name="cant_make_a_phone_call_permissions_alert">Affinché Beiwe possa avviare una telefonata, devi andare su Impostazioni -> Autorizzazioni e concedere all\'app Beiwe l\'autorizzazione \'Telefono\'.\n\nOppure puoi aprire l\'app Telefono e fai tu stesso la telefonata.</string>
     <string name="go_to_settings_button">Vai a Impostazioni</string>
-    <string name="permission_access_fine_location">utilizza servizi di localizzazione</string>
-    <string name="permission_access_network_state">visualizza lo stato della tua rete</string>
-    <string name="permission_access_wifi_state">visualizza il tuo stato Wi-Fi</string>
-    <string name="permission_read_sms">visualizza i tuoi messaggi SMS</string>
-    <string name="permission_bluetooth">utilizza il Bluetooth</string>
-    <string name="permission_bluetooth_admin">utilizza il Bluetooth</string>
-    <string name="permission_call_phone">accedi al tuo servizio telefonico</string>
-    <string name="permission_internet">accedi ad Internet</string>
-    <string name="permission_read_call_log">accedi al tuo servizio telefonico</string>
-    <string name="permission_read_contacts">accedi ai tuoi contatti</string>
-    <string name="permission_read_phone_state">accedi al tuo servizio telefonico</string>
-    <string name="permission_receive_boot_completed">avvio all\'avvio</string>
-    <string name="permission_record_audio">accedi al tuo microfono</string>
-    <string name="permission_access_coarse_location">utilizza i servizi di localizzazione</string>
-    <string name="permission_receive_mms">ricevi messaggi MMS</string>
-    <string name="permission_receive_sms">ricevi messaggi SMS</string>
-    <string name="permission_access_background_location">utilizza l’opzione: \"Consenti sempre\"</string>
+    <string name="permission_access_fine_location"> utilizza servizi di localizzazione</string>
+    <string name="permission_access_network_state"> visualizza lo stato della tua rete</string>
+    <string name="permission_access_wifi_state"> visualizza il tuo stato Wi-Fi</string>
+    <string name="permission_read_sms"> visualizza i tuoi messaggi SMS</string>
+    <string name="permission_bluetooth"> utilizza il Bluetooth</string>
+    <string name="permission_bluetooth_admin"> utilizza il Bluetooth</string>
+    <string name="permission_call_phone"> accedi al tuo servizio telefonico</string>
+    <string name="permission_internet"> accedi ad Internet</string>
+    <string name="permission_read_call_log"> accedere al tuo servizio telefonico</string>
+    <string name="permission_read_contacts"> accedere ai tuoi contatti</string>
+    <string name="permission_read_phone_state"> accedi al tuo servizio telefonico</string>
+    <string name="permission_receive_boot_completed"> avvio all\'avvio</string>
+    <string name="permission_record_audio"> accedi al tuo microfono</string>
+    <string name="permission_access_coarse_location"> utilizza i servizi di localizzazione</string>
+    <string name="permission_receive_mms"> ricevere messaggi MMS</string>
+    <string name="permission_receive_sms"> ricevere messaggi SMS</string>
+    <string name="permission_access_background_location">d utilizzare l’opzione: \"Consenti sempre\"</string>
 
     <!-- API URLs -->
 
@@ -44,7 +44,7 @@
     <!-- Debug Menu Strings -->
 
     <!-- Error Messages -->
-    <string name="default_alert_title">Notare</string>
+    <string name="default_alert_title">Nota</string>
     <string name="alert_ok_button_text">OK</string>
     <string name="alert_cancel_button_text">Annulla</string>
     <string name="question_error_text">Se stai leggendo questo, qualcosa si è rotto. Si prega di contattare gli amministratori dello studio e di dire loro che c\'è un bug nel sondaggio!</string>
@@ -64,7 +64,7 @@
     <!-- Survey Activity Strings -->
     <string name="survey_next_button_text">Prossimo"</string>
     <string name="survey_submit_button">Invia questionario</string>
-    <string name="default_survey_submit_success_message">Grazie per aver completato il sondaggio. Un medico non vedrà immediatamente le tue risposte, quindi se hai bisogno di aiuto o stai pensando di farti del male, contatta il tuo medico. Puoi anche premere il pulsante \"Chiama il mio medico\".</string>
+    <string name="default_survey_submit_success_message">Grazie per aver completato il sondaggio. Un medico non vedrà immediatamente le tue risposte, quindi se hai bisogno di aiuto o stai pensando di farti del male, contatta il tuo medico. Puoi anche premere il pulsante \"Chiama il medico\".</string>
     <string name="survey_submit_error_message">Questionario non salvata</string>
     <string name="survey_loading_text" tools:ignore="TypographyEllipsis">Download delle domande aggiornate del questionario in corso…</string>
 
@@ -96,7 +96,7 @@
 <string name="title_activity_forgot_password">password dimenticata</string>
 <string name="forgot_password_title">Per favore contatta il personale dello studio e presenta il tuo ID paziente in modo che possano fornirti una password temporanea</string>
 <string name="forgot_password_instructions_text">Il tuo ID è \"%s\"; ricordati di identificarti con questo ID e non con il tuo nome.</string>
-<string name="forgot_password_call_button_text">Chiama il assistente ricerca</string>
+<string name="forgot_password_call_button_text">Chiama assistente di ricerca</string>
 <string name="forgot_password_temporary_password_caption">Password temporanea:</string>
 
     <!-- Registration Activity Strings -->
@@ -143,7 +143,7 @@
 <string name="title_activity_graph">Risposte ai questionari precedent</string>
 <string name="permasurvey">permasurvey</string>
 <string name="perm_survey">Questionario</string>
-<string name="permaaudiosurvey">Questionario audio</string>
+<string name="permaaudiosurvey">Registrazione audio</string>
 
     <!-- Recording Activity -->
 <string name="record_activity_default_message">We would like to know how your day is going.  When you are ready, please press \"Record\" and speak for about 2 minutes.  Press \"Stop\" when you are finished. The recording will stop automatically after 4 minutes. Remember, researchers will not review and analyze your data until the end of the study, so if you are ill or in danger and need to speak with your clinician, press the \"Call My Clinician\" button.</string>
@@ -161,7 +161,7 @@
 <string name="survey_notification_app_name">Beiwe</string>
 <string name="new_android_survey_notification_ticker">È disponibile un nuovo questionario da compilare</string>
 <string name="new_android_survey_notification_details">Si prega di compilare questo sondaggio.</string>
-<string name="new_audio_survey_notification_ticker">È disponibile un nuovo questionario audio a cui rispondere</string>
+<string name="new_audio_survey_notification_ticker">È disponibile un nuovo registrazione audio a cui rispondere</string>
 <string name="new_audio_survey_notification_details">Registra</string>
 
     <!-- Notification Action Pointers -->
@@ -172,12 +172,12 @@
 <string name="menu_sign_out">Logout</string>
 <string name="menu_change_password">Cambia password</string>
 <string name="menu_about">Informazioni su questa app</string>
-<string name="call_research_assistant">Chiama il assistente ricerca</string>
+<string name="call_research_assistant">Chiama assistente di ricerca</string>
 <string name="view_survey_answers">"Visualizza le risposte ai questionari "</string>
 
     <!-- About Page -->
 <string name="title_activity_about">Informazioni su Beiwe</string>
-<string name="default_about_page_text">Beiwe è un\'applicazione che funziona sul tuo cellulare e aiuta i ricercatori a raccogliere informazioni sulla tua salute e sui tuoi comportamenti. Ti chiede di compilare brevi sondaggi e di registrare la tua voce una volta al giorno. Beiwe raccoglie continuamente informazioni sulla tua posizione (usando il GPS del tuo telefono) e su quanto ti muovi (usando l\'accelerometro del tuo telefono). Monitora anche quanto usi il telefono per chiamare e inviare SMS e tiene traccia delle diverse persone con cui comunichi. È importante sottolineare che Beiwe non registra i nomi o i numeri di telefono delle persone con cui comunichi. Sebbene possa dire se chiami la stessa persona più di una volta, non sa chi sia quella persona. Beiwe non registra il contenuto dei tuoi messaggi di testo o delle tue telefonate. Tiene anche traccia delle diverse reti Wi-Fi nella tua zona, ma i nomi di tali reti vengono sostituiti con codici casuali. Infine, Beiwe può dire se sei vicino a un altro telefono che esegue anche questa applicazione.\n\nSebbene Beiwe raccolga una grande quantità di dati, tutti questi dati vengono elaborati per proteggere la tua privacy. Ciò significa che l\'applicazione non conosce il tuo nome, il tuo numero di telefono o qualsiasi altra cosa che possa identificarti. Beiwe ti conosce solo tramite un numero di identificazione. Poiché Beiwe non sa chi sei, non può comunicare con il tuo medico se sei malato o in pericolo. I ricercatori non esamineranno i dati raccolti da Beiwe fino alla fine dello studio. Per facilitare la connessione con il medico, nella parte superiore di ogni pagina viene visualizzato il pulsante \"Chiama il mio medico\". Affinché il pulsante funzioni, devi inserire il numero di telefono del tuo medico in Beiwe. Puoi cambiarlo tutte le volte che vuoi.\n\nBeiwe è stato concepito e progettato dal Dr. Jukka-Pekka \"JP\" Onnela presso la Harvard School of Public Health. Il software è stato creato da Zagaran, Inc., a Cambridge, Massachusetts.</string>
+<string name="default_about_page_text">Beiwe è un\'applicazione che funziona sul tuo cellulare e aiuta i ricercatori a raccogliere informazioni sulla tua salute e sui tuoi comportamenti. Ti chiede di compilare brevi sondaggi e di registrare la tua voce una volta al giorno. Beiwe raccoglie continuamente informazioni sulla tua posizione (usando il GPS del tuo telefono) e su quanto ti muovi (usando l\'accelerometro del tuo telefono). Monitora anche quanto usi il telefono per chiamare e inviare SMS e tiene traccia delle diverse persone con cui comunichi. È importante sottolineare che Beiwe non registra i nomi o i numeri di telefono delle persone con cui comunichi. Sebbene possa dire se chiami la stessa persona più di una volta, non sa chi sia quella persona. Beiwe non registra il contenuto dei tuoi messaggi di testo o delle tue telefonate. Tiene anche traccia delle diverse reti Wi-Fi nella tua zona, ma i nomi di tali reti vengono sostituiti con codici casuali. Infine, Beiwe può dire se sei vicino a un altro telefono che esegue anche questa applicazione.\n\nSebbene Beiwe raccolga una grande quantità di dati, tutti questi dati vengono elaborati per proteggere la tua privacy. Ciò significa che l\'applicazione non conosce il tuo nome, il tuo numero di telefono o qualsiasi altra cosa che possa identificarti. Beiwe ti conosce solo tramite un numero di identificazione. Poiché Beiwe non sa chi sei, non può comunicare con il tuo medico se sei malato o in pericolo. I ricercatori non esamineranno i dati raccolti da Beiwe fino alla fine dello studio. Per facilitare la connessione con il medico, nella parte superiore di ogni pagina viene visualizzato il pulsante \"Chiama il medico\". Affinché il pulsante funzioni, devi inserire il numero di telefono del tuo medico in Beiwe. Puoi cambiarlo tutte le volte che vuoi.\n\nBeiwe è stato concepito e progettato dal Dr. Jukka-Pekka \"JP\" Onnela presso la Harvard School of Public Health. Il software è stato creato da Zagaran, Inc., a Cambridge, Massachusetts.</string>
 
     <!-- Phone Numbers -->
 <string name="phone_number_length_error">I numeri di telefono devono contenere esattamente %d cifre.</string>
