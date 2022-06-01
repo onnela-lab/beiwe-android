@@ -8,31 +8,31 @@
 	
     <!-- Permissions Strings -->
     <string name="permissions_alert_title">Requisiti per le autorizzazioni:</string>
-    <string name="permission_normal_request_template">Per questo studio Beiwe ha bisogno dell\'autorizzazione per %s. Per favore premi Consenti sulla seguente richiesta di autorizzazione</string>
-    <string name="permission_bumping_request_template">Per essere completamente arruolato in questo studio, Beiwe ha bisogno dell\'autorizzazione a%s. Sembra che tu abbia negato o rimosso questa autorizzazione. Beiwe ora ti indirizzerà alla sua pagina nelle impostazioni in modo che tu possa abilitarla manualmente.</string>
+    <string name="permission_normal_request_template">Per questo studio Beiwe ha bisogno dell\'autorizzazione %s. Per favore premi Consenti sulla seguente richiesta di autorizzazione</string>
+    <string name="permission_bumping_request_template">Per essere completamente arruolato in questo studio, Beiwe ha bisogno dell\'autorizzazione %s. Sembra che tu abbia negato o rimosso questa autorizzazione. Beiwe ora ti indirizzerà alla sua pagina nelle impostazioni in modo che tu possa abilitarla manualmente.</string>
     <string name="permission_registration_read_sms_alert">Per iscriversi a uno studio, Beiwe richiede l\'accesso ad alcuni servizi telefonici di questo dispositivo. Premi \\\"Consenti\\\" quando vedi un menu che richiede le autorizzazioni per accedere agli SMS. A seconda dei dettagli dello studio, puoi disabilitare questa autorizzazione nelle preferenze dell\'app Beiwe dopo che la registrazione è stata completata.</string>
     <string name="permission_registration_actually_need_sms_alert">Beiwe richiede autorizzazioni SMS per registrarsi a uno studio, ma sembra che tu le abbia negato l\'autorizzazione. Ti indirizzeremo alle impostazioni dell\'app Beiwe in modo che tu possa abilitare manualmente l\'accesso agli SMS.</string>
     <string name="power_management_exception_alert">La richiesta di autorizzazione che stai per visualizzare è necessaria per consentire a Beiwe di essere eseguita in background.</string>
     <string name="cant_make_phone_call_alert_title">Beiwe non può avviare telefonate</string>
     <string name="cant_make_a_phone_call_permissions_alert">Affinché Beiwe possa avviare una telefonata, devi andare su Impostazioni -> Autorizzazioni e concedere all\'app Beiwe l\'autorizzazione \'Telefono\'.\n\nOppure puoi aprire l\'app Telefono e fai tu stesso la telefonata.</string>
     <string name="go_to_settings_button">Vai a Impostazioni</string>
-    <string name="permission_access_fine_location"> utilizza servizi di localizzazione</string>
-    <string name="permission_access_network_state"> visualizza lo stato della tua rete</string>
-    <string name="permission_access_wifi_state"> visualizza il tuo stato Wi-Fi</string>
-    <string name="permission_read_sms"> visualizza i tuoi messaggi SMS</string>
-    <string name="permission_bluetooth"> utilizza il Bluetooth</string>
-    <string name="permission_bluetooth_admin"> utilizza il Bluetooth</string>
-    <string name="permission_call_phone"> accedi al tuo servizio telefonico</string>
-    <string name="permission_internet"> accedi ad Internet</string>
-    <string name="permission_read_call_log"> accedere al tuo servizio telefonico</string>
-    <string name="permission_read_contacts"> accedere ai tuoi contatti</string>
-    <string name="permission_read_phone_state"> accedi al tuo servizio telefonico</string>
-    <string name="permission_receive_boot_completed"> avvio all\'avvio</string>
-    <string name="permission_record_audio"> accedi al tuo microfono</string>
-    <string name="permission_access_coarse_location"> utilizza i servizi di localizzazione</string>
-    <string name="permission_receive_mms"> ricevere messaggi MMS</string>
-    <string name="permission_receive_sms"> ricevere messaggi SMS</string>
-    <string name="permission_access_background_location">d utilizzare l’opzione: \"Consenti sempre\"</string>
+    <string name="permission_access_fine_location">ad utilizzare servizi di localizzazione</string>
+    <string name="permission_access_network_state">a visualizza lo stato della tua rete</string>
+    <string name="permission_access_wifi_state">a visualizza il tuo stato Wi-Fi</string>
+    <string name="permission_read_sms">a visualizza i tuoi messaggi SMS</string>
+    <string name="permission_bluetooth">a utilizza il Bluetooth</string>
+    <string name="permission_bluetooth_admin">a utilizza il Bluetooth</string>
+    <string name="permission_call_phone">a accedere al tuo servizio telefonico</string>
+    <string name="permission_internet">a accedere ad Internet</string>
+    <string name="permission_read_call_log">a accedere al tuo servizio telefonico</string>
+    <string name="permission_read_contacts">a accedere ai tuoi contatti</string>
+    <string name="permission_read_phone_state">a accedere al tuo servizio telefonico</string>
+    <string name="permission_receive_boot_completed">a avvio all\'avvio</string>
+    <string name="permission_record_audio">a accedere al tuo microfono</string>
+    <string name="permission_access_coarse_location">a utilizza i servizi di localizzazione</string>
+    <string name="permission_receive_mms">a ricevere messaggi MMS</string>
+    <string name="permission_receive_sms">a ricevere messaggi SMS</string>
+    <string name="permission_access_background_location">ad utilizzare l’opzione: \"Consenti sempre\"</string>
 
     <!-- API URLs -->
 
