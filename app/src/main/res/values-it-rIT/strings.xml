@@ -22,13 +22,13 @@
     <string name="permission_read_sms">a visualizza i tuoi messaggi SMS</string>
     <string name="permission_bluetooth">a utilizza il Bluetooth</string>
     <string name="permission_bluetooth_admin">a utilizza il Bluetooth</string>
-    <string name="permission_call_phone">a accedere al tuo servizio telefonico</string>
+    <string name="permission_call_phone">ad accedere al tuo servizio telefonico</string>
     <string name="permission_internet">a accedere ad Internet</string>
-    <string name="permission_read_call_log">a accedere al tuo servizio telefonico</string>
-    <string name="permission_read_contacts">a accedere ai tuoi contatti</string>
-    <string name="permission_read_phone_state">a accedere al tuo servizio telefonico</string>
+    <string name="permission_read_call_log">ad accedere al tuo servizio telefonico</string>
+    <string name="permission_read_contacts">ad accedere ai tuoi contatti</string>
+    <string name="permission_read_phone_state">ad accedere al tuo servizio telefonico</string>
     <string name="permission_receive_boot_completed">a avvio all\'avvio</string>
-    <string name="permission_record_audio">a accedere al tuo microfono</string>
+    <string name="permission_record_audio">ad accedere al tuo microfono</string>
     <string name="permission_access_coarse_location">a utilizza i servizi di localizzazione</string>
     <string name="permission_receive_mms">a ricevere messaggi MMS</string>
     <string name="permission_receive_sms">a ricevere messaggi SMS</string>
@@ -160,7 +160,7 @@
     <!-- Notifications -->
 <string name="survey_notification_app_name">Beiwe</string>
 <string name="new_android_survey_notification_ticker">È disponibile un nuovo questionario da compilare</string>
-<string name="new_android_survey_notification_details">Si prega di compilare questo sondaggio.</string>
+<string name="new_android_survey_notification_details">Si prega di compilare questo questionario.</string>
 <string name="new_audio_survey_notification_ticker">È disponibile un nuovo registrazione audio a cui rispondere</string>
 <string name="new_audio_survey_notification_details">Registra</string>
 
