@@ -103,7 +103,7 @@
     <!-- Registration Activity Strings -->
     <string name="registration_welcome_message">Willkommen in der Beiwe-App</string>
     <string name="registration_server_url_label">Studien-URL</string>
-    <string name="registration_server_url_hint">Zum Beispiel www.eu.beiwe.org</string>
+    <string name="registration_server_url_hint">Zum Beispiel eu.beiwe.org</string>
     <string name="registration_user_id_label">Benutzername:</string>
     <string name="registration_user_id_hint">Benutzername</string>
     <string name="registration_temp_password_label">vorläufiges Passwort:</string>
