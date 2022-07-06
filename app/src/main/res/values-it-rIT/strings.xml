@@ -71,7 +71,7 @@
     <!-- Login Activity Strings -->
     <string name="login_page_for_app">Accedi al tuo studio</string>
     <string name="login_activity_please_enter_password">Password:</string>
-    <string name="incorrect_user_wwwpass_combo">La password è stata inserita in modo errato</string>
+    <string name="incorrect_user_pass_combo">La password è stata inserita in modo errato</string>
     <string name="title_activity_register">Registrati</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_login_string">Login</string>
