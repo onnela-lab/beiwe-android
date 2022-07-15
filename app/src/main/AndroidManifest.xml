@@ -26,7 +26,6 @@
 	<!-- Permission used in android 6+ for being whitelisted for app standby -->
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <!-- as of the android 6 compatibility update, Beiwe no longer supports installation onto external media -->
-    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
     <!-- Power management and monitoring, not sure where this would be used... -->
     <uses-permission android:name="android.permission.BATTERY_STATS" />
     
