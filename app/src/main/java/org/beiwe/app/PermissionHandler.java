@@ -71,7 +71,6 @@ public class PermissionHandler {
 	 *  We will check for microphone recording as a special condition on the audio recording screen. */
 	public static Boolean checkAccessCoarseLocation(Context context) { if ( android.os.Build.VERSION.SDK_INT >= 23) { return context.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PERMISSION_GRANTED; } else { return true; } }
 	public static Boolean checkAccessFineLocation(Context context) { if ( android.os.Build.VERSION.SDK_INT >= 23) { return context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PERMISSION_GRANTED; } else { return true; } }
-	public static Boolean checkAccessBackgroundLocation(Context context) { if ( android.os.Build.VERSION.SDK_INT >= 29) {return context.checkSelfPermission(Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PERMISSION_GRANTED; } else { return true; } }
 	public static Boolean checkAccessNetworkState(Context context) { if ( android.os.Build.VERSION.SDK_INT >= 23) { return context.checkSelfPermission(Manifest.permission.ACCESS_NETWORK_STATE) == PERMISSION_GRANTED; } else { return true; } }
 	public static Boolean checkAccessWifiState(Context context) { if ( android.os.Build.VERSION.SDK_INT >= 23) { return context.checkSelfPermission(Manifest.permission.ACCESS_WIFI_STATE) == PERMISSION_GRANTED; } else { return true; } }
 	public static Boolean checkAccessBluetooth(Context context) { if ( android.os.Build.VERSION.SDK_INT >= 23) { return context.checkSelfPermission(Manifest.permission.BLUETOOTH) == PERMISSION_GRANTED; } else { return true; } }
@@ -103,8 +102,7 @@ public class PermissionHandler {
 
 	public static String getNextPermission(Context context, Boolean includeRecording) {
 		if (PersistentData.getGpsEnabled()) {
-			if ( !checkAccessFineLocation(context) ) return Manifest.permission.ACCESS_FINE_LOCATION;
-			if ( !checkAccessBackgroundLocation(context) && BuildConfig.READ_TEXTS_CALLS_BACKGROUND_LOCATION ) return Manifest.permission.ACCESS_BACKGROUND_LOCATION; }
+			if ( !checkAccessFineLocation(context) ) return Manifest.permission.ACCESS_FINE_LOCATION; }
 		if (PersistentData.getWifiEnabled()) {
 			if ( !checkAccessWifiState(context)) return Manifest.permission.ACCESS_WIFI_STATE;
 			if ( !checkAccessNetworkState(context)) return Manifest.permission.ACCESS_NETWORK_STATE;
@@ -113,10 +111,10 @@ public class PermissionHandler {
 		if (PersistentData.getBluetoothEnabled()) {
 			if ( !checkAccessBluetooth(context)) return Manifest.permission.BLUETOOTH;
 			if ( !checkAccessBluetoothAdmin(context)) return Manifest.permission.BLUETOOTH_ADMIN; }
-		if (PersistentData.getCallsEnabled() && BuildConfig.READ_TEXTS_CALLS_BACKGROUND_LOCATION) {
+		if (PersistentData.getCallsEnabled() && BuildConfig.READ_SMS_AND_PHONE_CALL_STATS) {
 			if ( !checkAccessReadPhoneState(context)) return Manifest.permission.READ_PHONE_STATE;  
 			if ( !checkAccessReadCallLog(context)) return Manifest.permission.READ_CALL_LOG; }
-		if (PersistentData.getTextsEnabled() && BuildConfig.READ_TEXTS_CALLS_BACKGROUND_LOCATION) {
+		if (PersistentData.getTextsEnabled() && BuildConfig.READ_SMS_AND_PHONE_CALL_STATS) {
 			if ( !checkAccessReadContacts(context)) return Manifest.permission.READ_CONTACTS;  
 			if ( !checkAccessReadSms(context)) return Manifest.permission.READ_SMS;
 			if ( !checkAccessReceiveMms(context)) return Manifest.permission.RECEIVE_MMS;

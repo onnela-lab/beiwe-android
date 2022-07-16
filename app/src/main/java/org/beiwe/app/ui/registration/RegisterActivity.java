@@ -193,7 +193,7 @@ public class RegisterActivity extends RunningBackgroundServiceActivity {
 		TelephonyManager phoneManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
 		String phoneNumber;
 		try {
-			// If READ_TEXTS_CALLS_BACKGROUND_LOCATION is true, we should not be able to get here without having
+			// If READ_SMS_AND_PHONE_CALL_STATS is true, we should not be able to get here without having
 			// asked for the SMS permission.  If it's false, we don't have permission to do this.
 			phoneNumber = phoneManager.getLine1Number();
 		} catch (SecurityException e) {
@@ -237,7 +237,7 @@ public class RegisterActivity extends RunningBackgroundServiceActivity {
 			thisResumeCausedByFalseActivityReturn = false;
 			return;
 		}
-		if (BuildConfig.READ_TEXTS_CALLS_BACKGROUND_LOCATION &&
+		if (BuildConfig.READ_SMS_AND_PHONE_CALL_STATS &&
 				!PermissionHandler.checkAccessReadSms(getApplicationContext()) &&
 				!thisResumeCausedByFalseActivityReturn) {
 			if (shouldShowRequestPermissionRationale(Manifest.permission.READ_SMS) ) {

@@ -63,19 +63,19 @@ android {
             dimension "version"
             manifestPlaceholders = [appName: "Beiwe"]
             buildConfigField("boolean", "CUSTOMIZABLE_SERVER_URL", "false")
-            buildConfigField("boolean", "READ_TEXTS_CALLS_BACKGROUND_LOCATION", 'true')
+            buildConfigField("boolean", "READ_SMS_AND_PHONE_CALL_STATS", 'true')
         }
         googlePlayStore {
             dimension "version"
             manifestPlaceholders = [appName: "Beiwe2"]
             buildConfigField("boolean", "CUSTOMIZABLE_SERVER_URL", 'true')
-            buildConfigField("boolean", "READ_TEXTS_CALLS_BACKGROUND_LOCATION", 'false')
+            buildConfigField("boolean", "READ_SMS_AND_PHONE_CALL_STATS", 'false')
         }
         commStatsCustomUrl {
             dimension "version"
             manifestPlaceholders = [appName: "Beiwe"]
             buildConfigField("boolean", "CUSTOMIZABLE_SERVER_URL", "true")
-            buildConfigField("boolean", "READ_TEXTS_CALLS_BACKGROUND_LOCATION", 'true')
+            buildConfigField("boolean", "READ_SMS_AND_PHONE_CALL_STATS", 'true')
         }
     }
     useLibrary "org.apache.http.legacy"
