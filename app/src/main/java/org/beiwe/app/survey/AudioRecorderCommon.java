@@ -53,27 +53,27 @@ public class AudioRecorderCommon extends SessionActivity {
 	protected Boolean currentlyPlaying = false; //this flag is set when the device is playing back a recording
 
 	// Buttons
-    protected Button playButton;
-    protected Button recordingButton;
+	protected Button playButton;
+	protected Button recordingButton;
 	protected Button saveButton;
 
 	// Flag used to determine whether to display the play button (may no longer be necessary).
 	protected static boolean displayPlaybackButton = false;
 
-    protected MediaPlayer mediaPlayer = null; //Media player for audio playback.
-    protected final Handler recordingTimeoutHandler = new Handler(); //handler for the recording timeout
+	protected MediaPlayer mediaPlayer = null; //Media player for audio playback.
+	protected final Handler recordingTimeoutHandler = new Handler(); //handler for the recording timeout
 
 	// Temporary audio file name.
-    public static final String unencryptedTempAudioFileName = "unencryptedTempAudioFile";
+	public static final String unencryptedTempAudioFileName = "unencryptedTempAudioFile";
 
 	protected String surveyId;
 
 	/**	To be overridden with the appropriate file extension in a subclass. */
-    protected String getFileExtension() { throw new NullPointerException("BAD CODE."); }
+	protected String getFileExtension() { throw new NullPointerException("BAD CODE."); }
 
 
-    /**On create, the activity presents the message to the user, and only a record button.
-     * After recording, the app will present the user with the play button. */
+	/**On create, the activity presents the message to the user, and only a record button.
+	 * After recording, the app will present the user with the play button. */
 	@Override
 	public void onCreate( Bundle savedInstanceState ) {
 		// set app to know user is taking a survey right now.
@@ -81,17 +81,17 @@ public class AudioRecorderCommon extends SessionActivity {
 		
 		super.onCreate( savedInstanceState );
 		setContentView( R.layout.activity_audio_recorder );
-        surveyId = getIntent().getStringExtra("surveyId");
+		surveyId = getIntent().getStringExtra("surveyId");
 
-    	// grab the layout element objects that we will add questions to:
+		// grab the layout element objects that we will add questions to:
 		MarkDownTextView textbox = (MarkDownTextView) findViewById(R.id.record_activity_textview );
 		textbox.setText( getPromptText(surveyId, getApplicationContext() ) );
-        // Handle file path issues with this variable
+		// Handle file path issues with this variable
 		
-        unencryptedTempAudioFilePath = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + unencryptedTempAudioFileName;
+		unencryptedTempAudioFilePath = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + unencryptedTempAudioFileName;
 		
-    	playButton = (Button) findViewById(R.id.play_button);
-    	recordingButton = (Button) findViewById(R.id.recording_button);
+		playButton = (Button) findViewById(R.id.play_button);
+		recordingButton = (Button) findViewById(R.id.recording_button);
 		saveButton = (Button) findViewById(R.id.done_button);
 
 		Button callClinicianButton = (Button) findViewById(R.id.record_activity_call_clinician);
@@ -102,12 +102,12 @@ public class AudioRecorderCommon extends SessionActivity {
 			callClinicianButton.setVisibility(View.GONE);
 		}
 
-    	// Each time the screen is flipped, the app checks if it's time to show the play button
-        if (!displayPlaybackButton) { playButton.setVisibility(Button.INVISIBLE); }
-    	else { playButton.setVisibility(Button.VISIBLE) ; }
+		// Each time the screen is flipped, the app checks if it's time to show the play button
+		if (!displayPlaybackButton) { playButton.setVisibility(Button.INVISIBLE); }
+		else { playButton.setVisibility(Button.VISIBLE) ; }
 
-    	// Disable the "Save" button; only enable it once you've made a recording
-    	disableSaveButton();
+		// Disable the "Save" button; only enable it once you've made a recording
+		disableSaveButton();
 	}
 
 	@Override
@@ -136,46 +136,46 @@ public class AudioRecorderCommon extends SessionActivity {
 			e.printStackTrace();
 			return appContext.getString(R.string.record_activity_default_message);
 		}
-    }
-    
-    /*#########################################################
-    #################### Recording Timeout ####################
-    #########################################################*/
+	}
+	
+	/*#########################################################
+	#################### Recording Timeout ####################
+	#########################################################*/
 
-    /** Automatically stop recording if the recording runs longer than n seconds. */
-    protected void startRecordingTimeout() {
-    	recordingTimeoutHandler.postDelayed(new Runnable() {
+	/** Automatically stop recording if the recording runs longer than n seconds. */
+	protected void startRecordingTimeout() {
+		recordingTimeoutHandler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				showTimeoutToast();
 				stopRecording();
 			}
 		}, PersistentData.getVoiceRecordingMaxTimeLength());
-    }
+	}
 
-    /** Show a Toast with message "the recording timed out after n minutes" */
-    protected void showTimeoutToast() {
-    	Resources resources = getApplicationContext().getResources();
-    	String msg = (String) resources.getText(R.string.timeout_msg_1st_half);
-    	msg += ((float) PersistentData.getVoiceRecordingMaxTimeLength() / 60 / 1000);
-    	msg += resources.getText(R.string.timeout_msg_2nd_half);
-    	Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-    }
+	/** Show a Toast with message "the recording timed out after n minutes" */
+	protected void showTimeoutToast() {
+		Resources resources = getApplicationContext().getResources();
+		String msg = (String) resources.getText(R.string.timeout_msg_1st_half);
+		msg += ((float) PersistentData.getVoiceRecordingMaxTimeLength() / 60 / 1000);
+		msg += resources.getText(R.string.timeout_msg_2nd_half);
+		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+	}
 
-    /**Cancel the stop-recording timer (this should be called when
-     * stopRecording() has already been called somewhere else, so that we don't
-     * call stopRecording twice. */
-    protected void cancelRecordingTimeout() { recordingTimeoutHandler.removeCallbacksAndMessages(null); }
-    
-    /*#########################################################
-    ################# Button functionalities ##################
-    #########################################################*/
+	/**Cancel the stop-recording timer (this should be called when
+	 * stopRecording() has already been called somewhere else, so that we don't
+	 * call stopRecording twice. */
+	protected void cancelRecordingTimeout() { recordingTimeoutHandler.removeCallbacksAndMessages(null); }
+	
+	/*#########################################################
+	################# Button functionalities ##################
+	#########################################################*/
 
-    /** When the user presses the "record" button toggle (start/stop) recording. */
-    public void buttonRecordPressed(View view) {
-    	if (!currentlyRecording) { startRecording(); }
-    	else { stopRecording(); }
-    }
+	/** When the user presses the "record" button toggle (start/stop) recording. */
+	public void buttonRecordPressed(View view) {
+		if (!currentlyRecording) { startRecording(); }
+		else { stopRecording(); }
+	}
 
 	/** When the user presses the "play" button, toggle (start/stop) playback. */
 	public void buttonPlayPressed(View view) {
@@ -184,50 +184,50 @@ public class AudioRecorderCommon extends SessionActivity {
 	}
 
 	//Ensure you override, need subclass's private variables, Java references the parent class if the function is not overridden would have to use an interface(?) for ensuring functionality.
-    protected void startRecording() {
-    	currentlyRecording = true;
-    	// Toggles button
+	protected void startRecording() {
+		currentlyRecording = true;
+		// Toggles button
 	    setRecordButtonToStop();
 	    disableSaveButton();
-    }
+	}
 
-    //Ensure you override, need subclass's private variables, Java references the parent class if the function is not overridden would have to use an interface(?) for ensuring functionality.
-    public void stopRecording(){
+	//Ensure you override, need subclass's private variables, Java references the parent class if the function is not overridden would have to use an interface(?) for ensuring functionality.
+	public void stopRecording(){
 	    cancelRecordingTimeout();
 	    currentlyRecording = false;
 	    setRecordButtonToRecord();
 	    disableRecordButton();
-    }
+	}
 
-    //Ensure you override, need subclass's private variables, Java references the parent class if the function is not overridden would have to use an interface(?) for ensuring functionality.
-    /** Stops playing back the recording, and reset the button to "play" */
-    protected void stopPlaying() {
-    	currentlyPlaying = false;
+	//Ensure you override, need subclass's private variables, Java references the parent class if the function is not overridden would have to use an interface(?) for ensuring functionality.
+	/** Stops playing back the recording, and reset the button to "play" */
+	protected void stopPlaying() {
+		currentlyPlaying = false;
 	    setPlayButtonTextToPlay();
-    	mediaPlayer.stop();
-    	mediaPlayer.reset();
-    	mediaPlayer.release();
-    	mediaPlayer = null;
-    }
+		mediaPlayer.stop();
+		mediaPlayer.reset();
+		mediaPlayer.release();
+		mediaPlayer = null;
+	}
 
-    //Ensure you override, need subclass's private variables, Java references the parent class if the function is not overridden would have to use an interface(?) for ensuring functionality.
-    /** Starts playing back the recording */
-    protected void startPlaying() {
-    	currentlyPlaying = true;
+	//Ensure you override, need subclass's private variables, Java references the parent class if the function is not overridden would have to use an interface(?) for ensuring functionality.
+	/** Starts playing back the recording */
+	protected void startPlaying() {
+		currentlyPlaying = true;
 	    setPlayButtonTextToStop();
 	    mediaPlayer = new MediaPlayer();
-    	try {
-    		// Play the temporary unencrypted file, because you can't read the encrypted file
-            mediaPlayer.setDataSource(unencryptedTempAudioFilePath);
-            mediaPlayer.prepare();
-            mediaPlayer.start();
-            mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
+		try {
+			// Play the temporary unencrypted file, because you can't read the encrypted file
+			mediaPlayer.setDataSource(unencryptedTempAudioFilePath);
+			mediaPlayer.prepare();
+			mediaPlayer.start();
+			mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
 				@Override
 				public void onCompletion(MediaPlayer mediaPlayer) { stopPlaying(); }
 			} );
-        }
-        catch (IOException e) { Log.e(LOG_TAG, "prepare() failed"); }
-    }
+		}
+		catch (IOException e) { Log.e(LOG_TAG, "prepare() failed"); }
+	}
 
 
 	/** When the user presses "Done", just kill this activity and take them
@@ -243,9 +243,9 @@ public class AudioRecorderCommon extends SessionActivity {
 	}
 
 
-    /*#########################################################
-    #################### Button Visibility ####################
-    #########################################################*/
+	/*#########################################################
+	#################### Button Visibility ####################
+	#########################################################*/
 
 	/** This function should be called from subclasses, because the enhanced audio recorder probably
 	 * needs to copy the file with the appropriate headers before it can be played back. */
@@ -275,8 +275,8 @@ public class AudioRecorderCommon extends SessionActivity {
 	public void disableSaveButton(){ saveButton.setClickable(false); saveButton.setAlpha(DISABLED_BUTTON_ALPHA); }
 
 	/*#########################################################
-    ##################### Encryption ##########################
-    #########################################################*/
+	##################### Encryption ##########################
+	#########################################################*/
 
 	/** While encrypting the audio file we block out user interaction.*/
 	protected class EncryptAudioFileTask extends AsyncTask<Void, Void, Void> {

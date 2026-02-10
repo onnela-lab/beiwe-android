@@ -33,7 +33,7 @@ public class AudioRecorderEnhancedActivity extends AudioRecorderCommon{
 	private static String unencryptedRawAudioFilePath;
 	
 	@Override
-    protected String getFileExtension() { return ".wav"; }
+	protected String getFileExtension() { return ".wav"; }
 
 	private AudioRecord recorder = null;
 	private Thread recordingThread = null;
@@ -65,19 +65,19 @@ public class AudioRecorderEnhancedActivity extends AudioRecorderCommon{
 		super.onDestroy();
 	}
 
-    /*#########################################################
-    ################# Recording and Playing ################### 
-    #########################################################*/
+	/*#########################################################
+	################# Recording and Playing ################### 
+	#########################################################*/
 
-    /** Starts playing back the recording */
-    @Override protected void startPlaying() { super.startPlaying(); }
-    @Override protected void stopPlaying() { super.stopPlaying(); }
-    
-    /** Start recording from the device's microphone */
-    @Override
-    protected void startRecording() {
-    	super.startRecording();
-    	//recording stuff
+	/** Starts playing back the recording */
+	@Override protected void startPlaying() { super.startPlaying(); }
+	@Override protected void stopPlaying() { super.stopPlaying(); }
+	
+	/** Start recording from the device's microphone */
+	@Override
+	protected void startRecording() {
+		super.startRecording();
+		//recording stuff
 		recorder = new AudioRecord( MediaRecorder.AudioSource.MIC,
 				SAMPLE_RATE, RECORDER_CHANNELS, RECORDER_AUDIO_ENCODING, BUFFER_SIZE );
 		if ( recorder.getState() == IS_INITIALIZED ) { recorder.startRecording(); }
@@ -89,35 +89,35 @@ public class AudioRecorderEnhancedActivity extends AudioRecorderCommon{
 		}, "AudioRecorder Thread");
 		recordingThread.start();
 		startRecordingTimeout();
-    }
-    
-    /** Stop recording, and reset the button to "record" */
-    @Override
-    public void stopRecording() {
-    	super.stopRecording();
-    	if ( recorder != null) {
-    		currentlyRecording = false;
-    		if ( recorder.getState() == IS_INITIALIZED ) { recorder.stop(); }
-    		recorder.release();
-    		recorder = null; //release memory...
-    		recordingThread = null;
-    	}
-    	
+	}
+	
+	/** Stop recording, and reset the button to "record" */
+	@Override
+	public void stopRecording() {
+		super.stopRecording();
+		if ( recorder != null) {
+			currentlyRecording = false;
+			if ( recorder.getState() == IS_INITIALIZED ) { recorder.stop(); }
+			recorder.release();
+			recorder = null; //release memory...
+			recordingThread = null;
+		}
+		
 	    // TODO: review encryption + this copy step for out of memory conditions and improvements, it is quite bad.
-    	// We need copy to wave file because the the RAW file is not formatted correctly for playback by all media players
-    	AudioFileManager.copyToWaveFile(
+		// We need copy to wave file because the the RAW file is not formatted correctly for playback by all media players
+		AudioFileManager.copyToWaveFile(
 			unencryptedRawAudioFilePath, unencryptedTempAudioFilePath, SAMPLE_RATE, BIT_DEPTH, BUFFER_SIZE
 	    );
-    	AudioFileManager.delete(unencryptedRawAudioFileName);
+		AudioFileManager.delete(unencryptedRawAudioFileName);
 	    // File has been copied, can now display the button.
 	    displayPlaybackButton();
-        new EncryptAudioFileTask().execute();  // TODO: port to use a thread
-    }
-    
-    /**Writes data from the AudioRecord to a file.
-     * This function is much harder to run as code outside of enhanced audio recording activity,
-     * so we are going to keep it here.
-     * This function blocks until currentlyRecording gets set to false, so run on a separate threod. */
+		new EncryptAudioFileTask().execute();  // TODO: port to use a thread
+	}
+	
+	/**Writes data from the AudioRecord to a file.
+	 * This function is much harder to run as code outside of enhanced audio recording activity,
+	 * so we are going to keep it here.
+	 * This function blocks until currentlyRecording gets set to false, so run on a separate threod. */
 	private void writeAudioDataToFile() {
 		int recordingStatus = 0;
 		byte data[] = new byte[BUFFER_SIZE];

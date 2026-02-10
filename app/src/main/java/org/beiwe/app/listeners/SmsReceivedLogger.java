@@ -40,27 +40,27 @@ public class SmsReceivedLogger extends BroadcastReceiver {
 	private void handleIncomingMMS(Intent intent) {
 		 Bundle bundle = intent.getExtras();
 
-         if (bundle != null) {
-        	 // MMS detection code based on http://stackoverflow.com/q/14452808
-             byte[] buffer = bundle.getByteArray("data");
-             String incomingNumber = new String(buffer);
-             int indx = incomingNumber.indexOf("/TYPE");
-             if(indx>0 && (indx-15)>0){
-                 int newIndx = indx - 15;
-                 incomingNumber = incomingNumber.substring(newIndx, indx);
-                 indx = incomingNumber.indexOf("+");
-                 if(indx>0){
-                     incomingNumber = incomingNumber.substring(indx);
+		 if (bundle != null) {
+			 // MMS detection code based on http://stackoverflow.com/q/14452808
+			 byte[] buffer = bundle.getByteArray("data");
+			 String incomingNumber = new String(buffer);
+			 int indx = incomingNumber.indexOf("/TYPE");
+			 if(indx>0 && (indx-15)>0){
+				 int newIndx = indx - 15;
+				 incomingNumber = incomingNumber.substring(newIndx, indx);
+				 indx = incomingNumber.indexOf("+");
+				 if(indx>0){
+					 incomingNumber = incomingNumber.substring(indx);
 //                     "timestamp,hashed phone number,sent vs received,message length,time sent";
-                     String data = "" + System.currentTimeMillis() + TextFileManager.DELIMITER;
-                     data += EncryptionEngine.hashPhoneNumber(incomingNumber) + TextFileManager.DELIMITER;
-                     data += "received MMS" + TextFileManager.DELIMITER;
+					 String data = "" + System.currentTimeMillis() + TextFileManager.DELIMITER;
+					 data += EncryptionEngine.hashPhoneNumber(incomingNumber) + TextFileManager.DELIMITER;
+					 data += "received MMS" + TextFileManager.DELIMITER;
 //                     TODO: Feature. determine if we can get the length of the text, if it has an attachment.
-                    Log.i("SMSReceivedLogger(SMS)", "data = " + data);
-                     TextFileManager.getTextsLogFile().writeEncrypted(data);
-                 }
-             }
-         }
+					Log.i("SMSReceivedLogger(SMS)", "data = " + data);
+					 TextFileManager.getTextsLogFile().writeEncrypted(data);
+				 }
+			 }
+		 }
 	}
 	
 	/** pulls out source phone number and length from an SMS, writes info to texts log. */

@@ -303,7 +303,7 @@ public class EncryptionEngine {
 			aesKeyGen.init( 128, random );
 			secretKey = aesKeyGen.generateKey().getEncoded();
 			
-            // helper code for debugging 0 values
+			// helper code for debugging 0 values
 			// byte[] ba = new byte[]{0};
 			// Log.w("encryption engine", "example byte 64: " + toBase64String(ba));
 			

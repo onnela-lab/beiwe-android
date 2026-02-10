@@ -59,33 +59,33 @@ public class TextFieldKeyboard {
 	}
 	
 	
-    /**
-     * If you tap anywhere outside the given text box, hide the keyboard
-     * Based on: http://stackoverflow.com/a/11656129
-     * @param rootView the highest parent View available
-     * @param editText the EditText that the user is currently typing in
-     */
-    private void setupUiToHideKeyboard(View rootView, final EditText editText) {
-    	/* If the user taps on an EditText; keep the keyboard open. If the user
-    	 * taps on a SeekBar (Slider); don't add an OnTouchListener, because
-    	 * that'll overwrite the Slider's existing OnTouchListener. */
-        if(!(rootView instanceof EditText) && !(rootView instanceof SeekBarEditableThumb)) {
-            rootView.setOnTouchListener(new OnTouchListener() {
-                public boolean onTouch(View v, MotionEvent event) {
-                    hideSoftKeyboard(editText);
-                    return false;
-                }
-            });
-        }
+	/**
+	 * If you tap anywhere outside the given text box, hide the keyboard
+	 * Based on: http://stackoverflow.com/a/11656129
+	 * @param rootView the highest parent View available
+	 * @param editText the EditText that the user is currently typing in
+	 */
+	private void setupUiToHideKeyboard(View rootView, final EditText editText) {
+		/* If the user taps on an EditText; keep the keyboard open. If the user
+		 * taps on a SeekBar (Slider); don't add an OnTouchListener, because
+		 * that'll overwrite the Slider's existing OnTouchListener. */
+		if(!(rootView instanceof EditText) && !(rootView instanceof SeekBarEditableThumb)) {
+			rootView.setOnTouchListener(new OnTouchListener() {
+				public boolean onTouch(View v, MotionEvent event) {
+					hideSoftKeyboard(editText);
+					return false;
+				}
+			});
+		}
 
-        //If a layout container, iterate over children and seed recursion.
-        if (rootView instanceof ViewGroup) {
-            for (int i = 0; i < ((ViewGroup) rootView).getChildCount(); i++) {
-                View innerView = ((ViewGroup) rootView).getChildAt(i);
-                setupUiToHideKeyboard(innerView, editText);
-            }
-        }
-    }
+		//If a layout container, iterate over children and seed recursion.
+		if (rootView instanceof ViewGroup) {
+			for (int i = 0; i < ((ViewGroup) rootView).getChildCount(); i++) {
+				View innerView = ((ViewGroup) rootView).getChildAt(i);
+				setupUiToHideKeyboard(innerView, editText);
+			}
+		}
+	}
 
 	
 	/**
@@ -93,13 +93,13 @@ public class TextFieldKeyboard {
 	 * Based on: http://stackoverflow.com/a/11656129
 	 * @param editText the EditText that the user is currently typing in
 	 */
-    private void hideSoftKeyboard(EditText editText) {
-    	InputMethodManager imm = (InputMethodManager) appContext.getSystemService(Context.INPUT_METHOD_SERVICE);
-    	imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-    	
-    	editText.clearFocus();
-    	View topParentView = getTopParentView(editText);
-    	topParentView.requestFocus();
-    }
-    
+	private void hideSoftKeyboard(EditText editText) {
+		InputMethodManager imm = (InputMethodManager) appContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+		
+		editText.clearFocus();
+		View topParentView = getTopParentView(editText);
+		topParentView.requestFocus();
+	}
+	
 }
