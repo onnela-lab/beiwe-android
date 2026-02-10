@@ -39,7 +39,6 @@ When you build the Android app, you choose one of the Build Variants and one of 
 
 | Product Flavor | App Name | Intended for | Server URL | Record text message and call log stats | Request background location permission |
 | --- | --- | --- | --- | --- | --- |
-| **googlePlayStore** | Beiwe2 | Distribution via Google Play Store | Customizable at registration | No (forbidden by Play Store policies) | No (forbidden by Play Store policies) |
 | **onnelaLabServer** | Beiwe | Download APK from studies.beiwe.org/download | Hardcoded to studies.beiwe.org | Yes | Yes |
 | **commStatsCustomUrl** | Beiwe | Download APK from `/download` link on other Beiwe deployments | Customizable at registration | Yes | Yes |
 
