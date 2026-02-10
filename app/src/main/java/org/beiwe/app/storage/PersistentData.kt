@@ -35,17 +35,12 @@ const val TEXTS_ENABLED = "texts"
 const val WIFI_ENABLED = "wifi"
 const val BLUETOOTH_ENABLED = "bluetooth"
 const val POWER_STATE_ENABLED = "power_state"
-const val AMBIENT_AUDIO_ENABLED = "ambient_audio"
 const val ALLOW_UPLOAD_OVER_CELLULAR_DATA = "allow_upload_over_cellular_data"
 
 // you can never never change these const values; ever.  If you do it will break the study data gathering
 const val ACCELEROMETER_OFF_SECONDS = "accelerometer_off_duration_seconds"
 const val ACCELEROMETER_ON_SECONDS = "accelerometer_on_duration_seconds"
 const val ACCELEROMETER_FREQUENCY = "accelerometer_frequency"
-const val AMBIENT_AUDIO_OFF_SECONDS = "ambient_audio_off_duration_seconds"
-const val AMBIENT_AUDIO_ON_SECONDS = "ambient_audio_on_duration_seconds"
-const val AMBIENT_AUDIO_SAMPLE_RATE = "ambient_audio_sample_rate"
-const val AMBIENT_AUDIO_BITRATE = "ambient_audio_bitrate"
 const val GYROSCOPE_ON_SECONDS = "gyro_on_duration_seconds"
 const val GYROSCOPE_OFF_SECONDS = "gyro_off_duration_seconds"
 const val GYROSCOPE_FREQUENCY = "gyro_frequency"
@@ -95,8 +90,6 @@ const val MOST_RECENT_SERVICE_ON_TASK_REMOVED = "most_recent_on_task_removed"
 
 const val MOST_RECENT_ACCELEROMETER_START = "most_recent_accelerometer_start"
 const val MOST_RECENT_ACCELEROMETER_STOP = "most_recent_accelerometer_stop"
-const val MOST_RECENT_AMBIENT_AUDIO_START = "most_recent_ambient_audio_start"
-const val MOST_RECENT_AMBIENT_AUDIO_STOP = "most_recent_ambient_audio_stop"
 const val MOST_RECENT_BLUETOOTH_START = "most_recent_bluetooth_start"
 const val MOST_RECENT_BLUETOOTH_STOP = "most_recent_bluetooth_stop"
 const val MOST_RECENT_GPS_START = "most_recent_gps_start"
@@ -249,12 +242,6 @@ object PersistentData {
     @JvmStatic var accelerometerStop: String
         get() =  pref.getString(MOST_RECENT_ACCELEROMETER_STOP, "")?: ""
         set(value) =  putCommit(MOST_RECENT_ACCELEROMETER_STOP, value)
-    @JvmStatic var ambientAudioStart: String
-        get() =  pref.getString(MOST_RECENT_AMBIENT_AUDIO_START, "")?: ""
-        set(value) =  putCommit(MOST_RECENT_AMBIENT_AUDIO_START, value)
-    @JvmStatic var ambientAudioStop: String
-        get() =  pref.getString(MOST_RECENT_AMBIENT_AUDIO_STOP, "")?: ""
-        set(value) =  putCommit(MOST_RECENT_AMBIENT_AUDIO_STOP, value)
     @JvmStatic var bluetoothStart: String
         get() =  pref.getString(MOST_RECENT_BLUETOOTH_START, "")?: ""
         set(value) =  putCommit(MOST_RECENT_BLUETOOTH_START, value)
@@ -314,8 +301,6 @@ object PersistentData {
     @JvmStatic fun setAccelerometerEnabled(enabled: Boolean): Boolean { return putCommit(ACCELEROMETER_ENABLED, enabled) }
     @JvmStatic fun getAllowUploadOverCellularData(): Boolean { return pref.getBoolean(ALLOW_UPLOAD_OVER_CELLULAR_DATA, false) }
     @JvmStatic fun setAllowUploadOverCellularData(enabled: Boolean) { putCommit(ALLOW_UPLOAD_OVER_CELLULAR_DATA, enabled) }
-    @JvmStatic fun getAmbientAudioEnabled(): Boolean { return pref.getBoolean(AMBIENT_AUDIO_ENABLED, false) }
-    @JvmStatic fun setAmbientAudioCollectionIsEnabled(enabled: Boolean): Boolean { return putCommit(AMBIENT_AUDIO_ENABLED, enabled) }
     @JvmStatic fun getBluetoothEnabled(): Boolean { return pref.getBoolean(BLUETOOTH_ENABLED, false) }
     @JvmStatic fun setBluetoothEnabled(enabled: Boolean): Boolean { return putCommit(BLUETOOTH_ENABLED, enabled) }
     @JvmStatic fun getCallLoggingEnabled(): Boolean { return pref.getBoolean(CALLS_ENABLED, false) }
@@ -341,14 +326,6 @@ object PersistentData {
     @JvmStatic fun setAccelerometerOnDuration(seconds: Long) { putCommit(ACCELEROMETER_ON_SECONDS, seconds) }
     @JvmStatic fun getAccelerometerFrequency(): Long { return pref.getLong(ACCELEROMETER_FREQUENCY, 5) }
     @JvmStatic fun setAccelerometerFrequency(frequency: Long) { putCommit(ACCELEROMETER_FREQUENCY, frequency) }
-    @JvmStatic fun getAmbientAudioOffDuration(): Long { return 1000L * pref.getLong(AMBIENT_AUDIO_OFF_SECONDS, (10 * 60).toLong()) }
-    @JvmStatic fun setAmbientAudioOffDuration(seconds: Long) { putCommit(AMBIENT_AUDIO_OFF_SECONDS, seconds) }
-    @JvmStatic fun getAmbientAudioOnDuration(): Long { return 1000L * pref.getLong(AMBIENT_AUDIO_ON_SECONDS, (10 * 60).toLong()) }
-    @JvmStatic fun setAmbientAudioOnDuration(seconds: Long) { putCommit(AMBIENT_AUDIO_ON_SECONDS, seconds) }
-    @JvmStatic fun getAmbientAudioSampleRate(): Long { return pref.getLong(AMBIENT_AUDIO_SAMPLE_RATE, 22050) }
-    @JvmStatic fun setAmbientAudioSampleRate(rate: Long) { putCommit(AMBIENT_AUDIO_SAMPLE_RATE, rate) }
-    @JvmStatic fun getAmbientAudioBitrate(): Long { return pref.getLong(AMBIENT_AUDIO_BITRATE, 24000) }
-    @JvmStatic fun setAmbientAudioBitrate(rate: Long) { putCommit(AMBIENT_AUDIO_BITRATE, rate) }
     @JvmStatic fun getBluetoothGlobalOffset(): Long { return 1000L * pref.getLong(BLUETOOTH_GLOBAL_OFFSET_SECONDS, (0 * 60).toLong()) }
     @JvmStatic fun setBluetoothGlobalOffset(seconds: Long) { putCommit(BLUETOOTH_GLOBAL_OFFSET_SECONDS, seconds) }
     @JvmStatic fun getBluetoothOnDuration(): Long { return 1000L * pref.getLong(BLUETOOTH_ON_SECONDS, (1 * 60).toLong()) }

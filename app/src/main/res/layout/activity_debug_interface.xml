@@ -210,26 +210,6 @@
 			android:onClick="listFiles"
 			android:text="(dev) List All Files"/>
 
-		<Button
-			android:id="@+id/buttonStartAmbientAudioRecording"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:onClick="startAmbientAudioRecording"
-			android:text="(dev) Start Ambient Audio Recording"/>
-
-		<Button
-			android:id="@+id/buttonzEncryptAmbientAudioFile"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:onClick="encryptAmbientAudioFile"
-			android:text="(dev) Encrypt Ambient Audio File"/>
-
-		<Button
-			android:id="@+id/buttonCheckAmbientAudioRunning"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:onClick="checkAmbientAudioRunning"
-			android:text="(dev) Is Ambient Audio Running"/>
 
 		<Button
 			android:id="@+id/buttonStartTimer"

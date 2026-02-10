@@ -188,8 +188,6 @@
     <!-- Timer Action Strings -->
     <string name="turn_accelerometer_off" translatable="false">Accelerometer OFF</string>
     <string name="turn_accelerometer_on" translatable="false">Accelerometer On</string>
-    <string name="turn_ambient_audio_off" translatable="false">Ambient Audio OFF</string>
-    <string name="turn_ambient_audio_on" translatable="false">Ambient Audio On</string>
     <string name="turn_gyroscope_off" translatable="false">Gyroscope OFF</string>
     <string name="turn_gyroscope_on" translatable="false">Gyroscope On</string>
     <string name="turn_bluetooth_off" translatable="false">Bluetooth OFF</string>
@@ -205,10 +203,8 @@
     <string name="heartbeat_intent" translatable="false">Check for new device settings</string>
 
     <string name="run_wifi_log" translatable="false">Wifi Log</string>
-    <string name="encrypt_ambient_audio_file" translatable="false">Encrypt and restart ambient audio recording</string>
     <string name="check_for_sms_enabled" translatable="false">Check SMS</string>
     <string name="check_for_call_log_enabled" translatable="false">Check Calls</string>
-    <string name="check_if_ambient_audio_recording_is_enabled" translatable="false">Check if ambient audio recording is enabled</string>
     <string name="fcm_upload" translatable="false">FCM Token send to server</string>
 
     <!-- Menu Items -->

@@ -1,14 +1,11 @@
 package org.beiwe.app.storage;
 
-import static org.beiwe.app.listeners.AmbientAudioListenerKt.ambientTempAudioFilename;
-
 import android.content.Context;
 import android.util.Log;
 
 import org.beiwe.app.BuildConfig;
 import org.beiwe.app.CrashHandler;
 import org.beiwe.app.listeners.AccelerometerListener;
-import org.beiwe.app.listeners.AmbientAudioListener;
 import org.beiwe.app.listeners.BluetoothListener;
 import org.beiwe.app.listeners.CallLogger;
 import org.beiwe.app.listeners.GPSListener;
@@ -594,7 +591,6 @@ public class TextFileManager {
 		files.remove(AudioRecorderActivity.unencryptedTempAudioFileName);
 		files.remove(AudioRecorderEnhancedActivity.unencryptedRawAudioFileName);
 		files.remove(AudioRecorderEnhancedActivity.unencryptedTempAudioFileName); //should be identical to regular audiorecording file, but keep in case it changes.
-		files.remove(ambientTempAudioFilename);
 		
 		// These files are currently being written to, so they shouldn't be uploaded now
 		files.remove(TextFileManager.getGPSFile().fileName);
@@ -605,7 +601,6 @@ public class TextFileManager {
 		files.remove(TextFileManager.getTextsLogFile().fileName);
 		files.remove(TextFileManager.getDebugLogFile().fileName);
 		files.remove(TextFileManager.getBluetoothLogFile().fileName);
-		files.remove(AmbientAudioListener.currentlyWritingEncryptedFilename);
 		
 		// These files are only occasionally open, but they may be currently open. If they are, don't upload them
 		files.remove(TextFileManager.getSurveyAnswersFile().fileName);

@@ -540,7 +540,6 @@ class MainService : Service() {
         accelerometer_logic(now)
         gyro_logic(now)  // on action ~20-50ms, off action 10-20ms
         gps_logic(now)  // on acction <10-20ms, off action ~2ms (yes two)
-        ambient_audio_logic(now)  // asynchronous when stopping because it has to encrypt
         do_fcm_upload_logic_check(now)  // asynchronous, runs network request on a thread.
         do_wifi_logic_check(now)  // on action <10-40ms
         do_upload_logic_check(now)  // asynchronous, runs network request on a thread, single digit ms.
@@ -619,33 +618,6 @@ class MainService : Service() {
                 off_string,
                 gpsListener!!.gps_on_action,
                 gpsListener!!.gps_off_action
-        )
-    }
-
-    fun ambient_audio_logic(now: Long) {
-        // check permissions and enablement
-        if (!PermissionHandler.confirmAmbientAudioCollection(applicationContext))
-            return
-
-        val on_string = getString(R.string.turn_ambient_audio_on)
-        val off_string = getString(R.string.turn_ambient_audio_off)
-        val most_recent_on = PersistentData.getMostRecentAlarmTime(on_string)
-        val should_turn_off_at = most_recent_on + PersistentData.getAmbientAudioOnDuration()
-        val should_turn_on_again_at = should_turn_off_at + PersistentData.getAmbientAudioOffDuration()
-
-        // ambiant audio needs the app context at runtime (we write very consistent code)
-        val ambient_audio_on = {
-            AmbientAudioListener.startRecording(applicationContext)
-        }
-        do_an_on_off_session_check(
-                now,
-                AmbientAudioListener.isCurrentlyRunning,
-                should_turn_off_at,
-                should_turn_on_again_at,
-                on_string,
-                off_string,
-                ambient_audio_on,
-                AmbientAudioListener.ambient_audio_off_action
         )
     }
 
@@ -902,8 +874,6 @@ class MainService : Service() {
             val filter = IntentFilter()
             filter.addAction(applicationContext.getString(R.string.turn_accelerometer_off))
             filter.addAction(applicationContext.getString(R.string.turn_accelerometer_on))
-            filter.addAction(applicationContext.getString(R.string.turn_ambient_audio_off))
-            filter.addAction(applicationContext.getString(R.string.turn_ambient_audio_on))
             filter.addAction(applicationContext.getString(R.string.turn_gyroscope_on))
             filter.addAction(applicationContext.getString(R.string.turn_gyroscope_off))
             filter.addAction(applicationContext.getString(R.string.turn_bluetooth_on))
@@ -918,7 +888,6 @@ class MainService : Service() {
             filter.addAction(applicationContext.getString(R.string.check_for_new_surveys_intent))
             filter.addAction(applicationContext.getString(R.string.check_for_sms_enabled))
             filter.addAction(applicationContext.getString(R.string.check_for_call_log_enabled))
-            filter.addAction(applicationContext.getString(R.string.check_if_ambient_audio_recording_is_enabled))
             filter.addAction(applicationContext.getString(R.string.fcm_upload))
             filter.addAction(applicationContext.getString(R.string.check_for_new_device_settings_intent))
             filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION)

@@ -30,13 +30,7 @@ public class AudioFileManager {
 		String patientId = PersistentData.getPatientID();
 		return patientId + "_voiceRecording_" + surveyId + "_" + timecode + filenameExtension;
 	}
-	
-	/** slighly different name for ambient audio file */
-	public static String generateAmbientEncryptedAudioFileName (String filenameExtension) {
-		String timecode = ((Long) (System.currentTimeMillis() / 1000L)).toString();
-		return PersistentData.getPatientID() + "_ambientAudio_" + timecode + filenameExtension;
-	}
-	
+
 	/** Reads in the existing temporary audio file and encrypts it. Generates AES keys as needed.
 	 * Behavior is to spend as little time writing the file as possible, at the expense of memory.*/
 	public static void encryptAudioFile (String unencryptedTempAudioFilePath, String filename, Context appContext) {

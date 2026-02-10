@@ -161,7 +161,10 @@ Version history:
       survey is completed, so a survey trigger "in the past" was always found when the app checked.
     Fixes a bug where the permissions check for the call log data stream was erroneously checking
       whether the ability to make a phone call was granted.
-
+85: 3.6.1
+    removes ambient audio data stream, which fails to work correctly and is not worth maintaining
+    or advertising as a feature. (too creepy... don't understand how that one study got the IRB
+    approval to start with...)
 TODO: we are stalled on the formatting for the hardware information for gps, accel, gyro.
    This probably requires a new data stream.
 */
@@ -188,8 +191,8 @@ android {
         minSdkVersion 23
         multiDexEnabled true
         targetSdkVersion 33
-        versionCode 84       //TODO: update this Beiwe version code for new releases
-        versionName '3.6.0'  //TODO: update this Beiwe version number for new releases
+        versionCode 85       //TODO: update this Beiwe version code for new releases
+        versionName '3.6.1'  //TODO: update this Beiwe version number for new releases
         setProperty("archivesBaseName", "Beiwe-$versionName")
     }
 

@@ -27,8 +27,6 @@ class Timer(mainService: MainService) {
         // Control Message Intents
         lateinit var accelerometerOffIntent: Intent
         lateinit var accelerometerOnIntent: Intent
-        lateinit var ambientAudioOffIntent: Intent
-        lateinit var ambientAudioOnIntent: Intent
         lateinit var gyroscopeOffIntent: Intent
         lateinit var gyroscopeOnIntent: Intent
         lateinit var bluetoothOffIntent: Intent
@@ -39,12 +37,10 @@ class Timer(mainService: MainService) {
         lateinit var signoutIntent: Intent
 
         lateinit var wifiLogIntent: Intent
-        lateinit var encryptAmbientAudioIntent: Intent
         lateinit var uploadDatafilesIntent: Intent
         lateinit var createNewDataFilesIntent: Intent
         lateinit var checkForNewSurveysIntent: Intent
         lateinit var checkForSMSEnabledIntent: Intent
-        lateinit var checkIfAmbientAudioRecordingIsEnabledIntent: Intent
         lateinit var checkForCallsEnabledIntent: Intent
         lateinit var sendCurrentFCMTokenIntent: Intent
         lateinit var checkForNewDeviceSettingsIntent: Intent
@@ -71,8 +67,6 @@ class Timer(mainService: MainService) {
         // double alarm intents
         accelerometerOffIntent = setupIntent(appContext.getString(R.string.turn_accelerometer_off))
         accelerometerOnIntent = setupIntent(appContext.getString(R.string.turn_accelerometer_on))
-        ambientAudioOffIntent = setupIntent(appContext.getString(R.string.turn_ambient_audio_off))
-        ambientAudioOnIntent = setupIntent(appContext.getString(R.string.turn_ambient_audio_on))
         gyroscopeOffIntent = setupIntent(appContext.getString(R.string.turn_gyroscope_off))
         gyroscopeOnIntent = setupIntent(appContext.getString(R.string.turn_gyroscope_on))
         bluetoothOffIntent = setupIntent(appContext.getString(R.string.turn_bluetooth_off))
@@ -88,7 +82,6 @@ class Timer(mainService: MainService) {
         checkForNewSurveysIntent = setupIntent(appContext.getString(R.string.check_for_new_surveys_intent))
         checkForSMSEnabledIntent = setupIntent(appContext.getString(R.string.check_for_sms_enabled))
         checkForCallsEnabledIntent = setupIntent(appContext.getString(R.string.check_for_call_log_enabled))
-        checkIfAmbientAudioRecordingIsEnabledIntent = setupIntent(appContext.getString(R.string.check_if_ambient_audio_recording_is_enabled))
         sendCurrentFCMTokenIntent = setupIntent(appContext.getString(R.string.fcm_upload))
         checkForNewDeviceSettingsIntent = setupIntent(appContext.getString(R.string.check_for_new_device_settings_intent))
     }

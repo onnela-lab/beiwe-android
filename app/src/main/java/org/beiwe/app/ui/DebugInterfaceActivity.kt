@@ -6,7 +6,6 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_debug_interface.*
 import org.beiwe.app.*
 import org.beiwe.app.Timer
-import org.beiwe.app.listeners.AmbientAudioListener
 import org.beiwe.app.networking.PostRequest
 import org.beiwe.app.networking.SurveyDownloader
 import org.beiwe.app.session.SessionActivity
@@ -355,19 +354,6 @@ class DebugInterfaceActivity : SessionActivity() {
             var len = this.applicationContext.getFileStreamPath(file).length()
             printi("files...", "${prefix}${file} ${len}B")
         }
-    }
-
-    fun startAmbientAudioRecording(view: View?) {
-        AmbientAudioListener.startRecording(this.applicationContext)
-    }
-
-    fun encryptAmbientAudioFile(view: View?) {
-        AmbientAudioListener.encryptAmbientAudioFile()
-    }
-
-    fun checkAmbientAudioRunning(view: View?) {
-        printi("Ambient Audio Enabled", PersistentData.getAmbientAudioEnabled())
-        printi("Ambient Audio Running", AmbientAudioListener.isCurrentlyRunning)
     }
 
     //ui operations

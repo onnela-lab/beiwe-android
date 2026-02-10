@@ -244,11 +244,6 @@ object PermissionHandler {
     }
 
     @JvmStatic
-    fun confirmAmbientAudioCollection(context: Context): Boolean {
-        return PersistentData.getAmbientAudioEnabled() && checkAccessRecordAudio(context)
-    }
-
-    @JvmStatic
     fun getNextPermission(context: Context, includeRecording: Boolean): String? {
         // os version check handled inside checkAccessNotifications
         if (!checkAccessNotifications(context)) return Manifest.permission.POST_NOTIFICATIONS
@@ -290,9 +285,6 @@ object PermissionHandler {
             if (!checkAccessReadSms(context)) return Manifest.permission.READ_SMS
             if (!checkAccessReceiveMms(context)) return Manifest.permission.RECEIVE_MMS
             if (!checkAccessReceiveSms(context)) return Manifest.permission.RECEIVE_SMS
-        }
-        if (includeRecording || PersistentData.getAmbientAudioEnabled()) {
-            if (!checkAccessRecordAudio(context)) return Manifest.permission.RECORD_AUDIO
         }
 
         // The phone call permission is dependent on the presence of either phone number being present
@@ -357,8 +349,6 @@ object PermissionHandler {
         permissions.put("most_recent_service_on_task_removed", PersistentData.serviceOnTaskRemoved)
         permissions.put("most_recent_accelerometer_start", PersistentData.accelerometerStart)
         permissions.put("most_recent_accelerometer_stop", PersistentData.accelerometerStop)
-        permissions.put("most_recent_ambient_audio_start", PersistentData.ambientAudioStart)
-        permissions.put("most_recent_ambient_audio_stop", PersistentData.ambientAudioStop)
         permissions.put("most_recent_bluetooth_start", PersistentData.bluetoothStart)
         permissions.put("most_recent_bluetooth_stop", PersistentData.bluetoothStop)
         permissions.put("most_recent_gps_start", PersistentData.gpsStart)

@@ -23,16 +23,6 @@ object SetDeviceSettings {
         enablement_change = enablement_change or PersistentData.setBluetoothEnabled(deviceSettings.getBoolean("bluetooth"))
         enablement_change = enablement_change or PersistentData.setPowerStateEnabled(deviceSettings.getBoolean("power_state"))
         // any sections in try-catch blocks were added after go-live, so must be caught in case the
-        // app is newer than the server backend.
-        try {
-            enablement_change = enablement_change or PersistentData.setAmbientAudioCollectionIsEnabled(deviceSettings.getBoolean("ambient_audio"))
-            PersistentData.setAmbientAudioOffDuration(deviceSettings.getLong("ambient_audio_off_duration_seconds"))
-            PersistentData.setAmbientAudioOnDuration(deviceSettings.getLong("ambient_audio_on_duration_seconds"))
-            PersistentData.setAmbientAudioSampleRate(deviceSettings.getLong("ambient_audio_sampling_rate"))
-            PersistentData.setAmbientAudioBitrate(deviceSettings.getLong("ambient_audio_bitrate"))
-        } catch (e: JSONException) {
-            e.printStackTrace()
-        }
 
         try {
             PersistentData.setAllowUploadOverCellularData(deviceSettings.getBoolean("allow_upload_over_cellular_data"))
