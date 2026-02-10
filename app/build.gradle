@@ -247,11 +247,6 @@ android {
             manifestPlaceholders = [appName: "Beiwe", appNameSuffix: "-test"]
             buildConfigField("boolean", "CUSTOMIZABLE_SERVER_URL", "false")
         }
-        googlePlayStore {
-            dimension "version"
-            manifestPlaceholders = [appName: "Beiwe2", appNameSuffix: "-test"]
-            buildConfigField("boolean", "CUSTOMIZABLE_SERVER_URL", 'true')
-        }
         commStatsCustomUrl {
             dimension "version"
             manifestPlaceholders = [appName: "Beiwe", appNameSuffix: "-test"]
