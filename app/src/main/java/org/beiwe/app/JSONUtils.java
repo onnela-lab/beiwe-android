@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 public class JSONUtils {
+
 	public static List<String> jsonArrayToStringList (JSONArray array) {
 		ArrayList<String> ret = new ArrayList<String>(array.length());
 		for (int i = 0; i < array.length(); i++) { //Wow, JSONArrays are not iterable.
