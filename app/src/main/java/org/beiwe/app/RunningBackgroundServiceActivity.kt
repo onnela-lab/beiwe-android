@@ -71,6 +71,8 @@ open class RunningBackgroundServiceActivity : AppCompatActivity() {
         if (!BuildConfig.APP_IS_DEV)
             Thread.setDefaultUncaughtExceptionHandler(CrashHandler(applicationContext))
         PersistentData.initialize(applicationContext)
+        // process-level foreground/background app log events, registration is idempotent.
+        AppLifecycleLogger.register(application)
 
         // this.localClassName returns the subclass name.
         // oncreate timesstamp sent back to the server for debugging purposes.
