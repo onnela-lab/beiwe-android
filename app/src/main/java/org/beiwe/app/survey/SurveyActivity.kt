@@ -55,6 +55,11 @@ class SurveyActivity : SessionActivity(), OnGoToNextQuestionListener, OnSubmitBu
             SurveyTimingsRecorder.recordSurveyFirstDisplayed(surveyId)
             // Onnela lab requested this line in the debug log
             TextFileManager.writeDebugLogStatement("$initialViewMoment opened survey $surveyId.")
+            // iOS logs the same "opened survey" event together with the notification it came from;
+            // Android has no notification ids, so record whether the survey was launched from a
+            // notification tap (SurveyNotifications sets the extra) or from the main menu list.
+            val source = if (intent.getBooleanExtra("launchedFromNotification", false)) "notification" else "main menu"
+            TextFileManager.writeDebugLogStatement("opened survey $surveyId from $source")
             hasLoadedBefore = true
         }
     }

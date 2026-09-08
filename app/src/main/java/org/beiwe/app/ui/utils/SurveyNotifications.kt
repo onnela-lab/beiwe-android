@@ -228,6 +228,7 @@ object SurveyNotifications {
         }
         
         activityIntent.putExtra("surveyId", surveyId)
+        activityIntent.putExtra("launchedFromNotification", true)  // for the app log, see SurveyActivity
         activityIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP //modifies behavior when the user is already in the app.
 
         //This value is used inside the notification (and the pending intent) as the unique Identifier of that notification, this value must be an int.
@@ -299,6 +300,7 @@ object SurveyNotifications {
             return
         }
         activityIntent.putExtra("surveyId", surveyId)
+        activityIntent.putExtra("launchedFromNotification", true)  // for the app log, see SurveyActivity
         activityIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP //modifies behavior when the user is already in the app.
 
         //This value is used inside the notification (and the pending intent) as the unique Identifier of that notification, this value must be an int.
