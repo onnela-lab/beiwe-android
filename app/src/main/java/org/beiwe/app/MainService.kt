@@ -106,6 +106,8 @@ class MainService : Service() {
         // Initialize everything that is necessary for the app!
         initializeFireBaseIDToken()
         TextFileManager.initialize(applicationContext)
+        // app lifecycle events that fired before the log file existed (cold start) get written now.
+        AppLifecycleLogger.flushPending()
         PostRequest.initialize(applicationContext)
         registerTimers(applicationContext)
         createNotificationChannel()
@@ -814,6 +816,12 @@ class MainService : Service() {
     override fun onTaskRemoved(rootIntent: Intent?) {
         // Log.d("BackroundService onTaskRemoved", "onTaskRemoved called with intent: " + rootIntent.toString() );
         TextFileManager.writeDebugLogStatement("onTaskRemoved called with intent: $rootIntent")
+        // Best-effort app termination event.  This fires when the participant swipes the app out of
+        // the recents list.  A force-stop from system settings, a crash, an OOM kill, or a device
+        // shutdown does not run any callback in this process, so those deaths are not observable
+        // here; the next "app_foregrounded" line (and the "BackgroundService was destroyed." line
+        // in onDestroy, when the system stops the service cleanly) are the only other signals.
+        TextFileManager.writeDebugLogStatement("app_terminated: task removed")
         PersistentData.serviceOnTaskRemoved = Date(System.currentTimeMillis()).toLocaleString()
         restartService()
     }
