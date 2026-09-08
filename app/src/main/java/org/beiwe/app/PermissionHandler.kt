@@ -1,6 +1,7 @@
 package org.beiwe.app
 
 import android.Manifest
+import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
@@ -307,6 +308,68 @@ object PermissionHandler {
         }
 
         return null
+    }
+
+    /* Permission change detection for the app log */
+
+    /** Location permission as a single level string, roughly comparable to the iOS authorization
+     * levels: Denied, CoarseWhenInUse, CoarseAlways, FineWhenInUse, FineAlways. "Always" means
+     * background location is also granted (below Android 10 there is no separate background
+     * permission, so any grant reports as Always). */
+    fun getLocationPermissionLevel(context: Context): String {
+        val precision = when {
+            checkAccessFineLocation(context) -> "Fine"
+            checkAccessCoarseLocation(context) -> "Coarse"
+            else -> return "Denied"
+        }
+        return precision + (if (checkAccessBackgroundLocation(context)) "Always" else "WhenInUse")
+    }
+
+    /** Notifications are "Enabled" only if the participant has not blocked them in system settings.
+     * areNotificationsEnabled covers every supported OS version (on 13+ it also reflects the
+     * POST_NOTIFICATIONS runtime permission), which checkSelfPermission alone does not. */
+    fun getNotificationPermissionState(context: Context): String {
+        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        return if (notificationManager.areNotificationsEnabled()) "Enabled" else "Disabled"
+    }
+
+    fun getBatteryOptimizationState(context: Context): String {
+        val pm = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+        return if (pm.isIgnoringBatteryOptimizations(context.packageName)) "Exempt" else "NotExempt"
+    }
+
+    /** Android has no callback for permission changes made while the app is in the background, so
+     * this is a check-and-diff: it reads the current state of each permission/setting Beiwe depends
+     * on, compares it against the last state stored in PersistentData, updates the stored state,
+     * and returns one "permission_changed: ..." app log statement per changed item.  The caller is
+     * responsible for writing the statements to the app log.  On the very first run the previous
+     * state is reported as "unknown", which doubles as a record of the initial state. */
+    @JvmStatic
+    fun checkForPermissionChanges(context: Context): List<String> {
+        val statements = ArrayList<String>()
+
+        val location = getLocationPermissionLevel(context)
+        val previousLocation = PersistentData.getLastKnownLocationPermissionState()
+        if (location != previousLocation) {
+            statements.add("permission_changed: location " + previousLocation.ifEmpty { "unknown" } + " -> " + location)
+            PersistentData.setLastKnownLocationPermissionState(location)
+        }
+
+        val notifications = getNotificationPermissionState(context)
+        val previousNotifications = PersistentData.getLastKnownNotificationPermissionState()
+        if (notifications != previousNotifications) {
+            statements.add("permission_changed: notifications " + previousNotifications.ifEmpty { "unknown" } + " -> " + notifications)
+            PersistentData.setLastKnownNotificationPermissionState(notifications)
+        }
+
+        val battery = getBatteryOptimizationState(context)
+        val previousBattery = PersistentData.getLastKnownBatteryOptimizationState()
+        if (battery != previousBattery) {
+            statements.add("permission_changed: battery_optimization " + previousBattery.ifEmpty { "unknown" } + " -> " + battery)
+            PersistentData.setLastKnownBatteryOptimizationState(battery)
+        }
+
+        return statements
     }
 
     // https://stackoverflow.com/questions/65479363/android-adaptive-battery-setting-detection
