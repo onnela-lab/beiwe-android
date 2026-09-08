@@ -74,7 +74,17 @@ object AppLifecycleLogger : Application.ActivityLifecycleCallbacks {
                 return
             }
             log("app_foregrounded: " + activity.localClassName)
+            // the participant may have changed a permission or setting while we were backgrounded.
+            logPermissionChanges(activity)
         }
+    }
+
+    /** Diffs the permissions/settings Beiwe depends on against their last known state and logs any
+     * changes.  Called on every foreground transition and after in-app permission prompts. */
+    @JvmStatic
+    fun logPermissionChanges(activity: Activity) {
+        for (statement in PermissionHandler.checkForPermissionChanges(activity.applicationContext))
+            log(statement)
     }
 
     override fun onActivityStopped(activity: Activity) {

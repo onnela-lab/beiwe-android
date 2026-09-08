@@ -62,6 +62,10 @@ const val VOICE_RECORDING_MAX_TIME_LENGTH_SECONDS = "voice_recording_max_time_le
 const val WIFI_LOG_FREQUENCY_SECONDS = "wifi_log_frequency_seconds"
 const val SURVEY_IDS = "survey_ids"
 const val LAST_REQUESTED_PERMISSION = "last_requested_permission"
+// last-known permission/setting states, used to log permission_changed app log events on foreground
+const val LAST_KNOWN_LOCATION_PERMISSION_STATE = "last_known_location_permission_state"
+const val LAST_KNOWN_NOTIFICATION_PERMISSION_STATE = "last_known_notification_permission_state"
+const val LAST_KNOWN_BATTERY_OPTIMIZATION_STATE = "last_known_battery_optimization_state"
 
 const val ABOUT_PAGE_TEXT_KEY = "about_page_text"
 const val CALL_CLINICIAN_BUTTON_TEXT_KEY = "call_clinician_button_text"
@@ -187,6 +191,12 @@ object PersistentData {
     @JvmStatic fun setIsRegistered(value: Boolean) { putCommit(IS_REGISTERED, value) }
     @JvmStatic fun setLastRequestedPermission(value: String) { putCommit(LAST_REQUESTED_PERMISSION, value) }
     @JvmStatic fun getLastRequestedPermission(): String { return pref.getString(LAST_REQUESTED_PERMISSION, "")?: "" }
+    @JvmStatic fun setLastKnownLocationPermissionState(value: String) { putCommit(LAST_KNOWN_LOCATION_PERMISSION_STATE, value) }
+    @JvmStatic fun getLastKnownLocationPermissionState(): String { return pref.getString(LAST_KNOWN_LOCATION_PERMISSION_STATE, "")?: "" }
+    @JvmStatic fun setLastKnownNotificationPermissionState(value: String) { putCommit(LAST_KNOWN_NOTIFICATION_PERMISSION_STATE, value) }
+    @JvmStatic fun getLastKnownNotificationPermissionState(): String { return pref.getString(LAST_KNOWN_NOTIFICATION_PERMISSION_STATE, "")?: "" }
+    @JvmStatic fun setLastKnownBatteryOptimizationState(value: String) { putCommit(LAST_KNOWN_BATTERY_OPTIMIZATION_STATE, value) }
+    @JvmStatic fun getLastKnownBatteryOptimizationState(): String { return pref.getString(LAST_KNOWN_BATTERY_OPTIMIZATION_STATE, "")?: "" }
     @JvmStatic fun getTakingSurvey(): Boolean { return pref.getBoolean(IS_TAKING_SURVEY, false) }
     @JvmStatic fun setTakingSurvey() { putCommit(IS_TAKING_SURVEY, true) }
     @JvmStatic fun setNotTakingSurvey() { putCommit(IS_TAKING_SURVEY, false) }

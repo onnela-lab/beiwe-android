@@ -202,6 +202,9 @@ open class RunningBackgroundServiceActivity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         // Log.i("sessionActivity", "onRequestPermissionResult");
+        // the system permission dialog does not stop this activity, so the foreground-transition
+        // permission check in AppLifecycleLogger would otherwise miss grants made through it.
+        AppLifecycleLogger.logPermissionChanges(this)
         if (!activityNotVisible) checkPermissionsLogic()
     }
 
